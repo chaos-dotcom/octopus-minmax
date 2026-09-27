@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import List, Optional, Tuple
 from tariff import Tariff
 import config
-from datetime import date
+from datetime import date, timedelta
 from account_info import AccountInfo
 from query_service import QueryService
 import logging
@@ -51,7 +51,8 @@ class ComparisonResult:
 
     @property
     def should_switch(self) -> bool:
-        logger.debug(f"cheapest_tariff: {self.cheapest_tariff.display_name}, potential_savings: {self.potential_savings}, SWITCH_THRESHOLD: {config.SWITCH_THRESHOLD}")
+        cheapest_name = getattr(self.cheapest_tariff, 'display_name', None)
+        logger.debug(f"cheapest_tariff: {cheapest_name}, potential_savings: {self.potential_savings}, SWITCH_THRESHOLD: {config.SWITCH_THRESHOLD}")
         return (self.cheapest_tariff is not None and
                 self.cheapest_tariff != self.current_tariff_comparison.tariff and
                 self.potential_savings > config.SWITCH_THRESHOLD) # buffer
@@ -98,8 +99,9 @@ class ComparisonEngine:
                           alternatives: List[TariffComparison]
                           ) -> Tuple[Optional[Tariff], float]:
         """Find the cheapest tariff option among all switchable tariffs."""
-        # Get all valid comparisons for switchable tariffs
-        valid_comparisons = [current] if current.tariff.switchable else []
+        # Staying on the current tariff is always an option; alternatives only
+        # count if they are switchable.
+        valid_comparisons = [current] if current.is_valid else []
         valid_comparisons.extend([
             comp for comp in alternatives
             if comp.is_valid and comp.tariff.switchable
@@ -158,19 +160,28 @@ class ComparisonEngine:
 
 
     def _calculate_current_cost(self, account_info:AccountInfo) -> CostBreakdown:
-        total_con_cost = sum(float(entry['costDeltaWithTax'] or 0) for entry in account_info.consumption)
-
         # Total consumption
         total_wh = sum(float(consumption['consumptionDelta']) for consumption in account_info.consumption)
         total_kwh = total_wh / 1000
 
         if total_kwh == 0:
-            raise ValueError("No consumption data found. Is your home mini okay?")
+            raise ValueError("No consumption data found for today. Check your consumption source.")
+
+        cost_deltas = [entry.get('costDeltaWithTax') for entry in account_info.consumption]
+        if any(delta is not None for delta in cost_deltas):
+            # The source supplied the actual cost per period (Octopus telemetry).
+            consumption_cost = sum(float(delta or 0) for delta in cost_deltas)
+        else:
+            # The source only reports usage (e.g. Home Assistant), so cost it
+            # against the current tariff's own rates.
+            _, unit_rates = self._get_product_rates(account_info.product_code, account_info.region_code)
+            period_costs = self._calculate_potential_costs(account_info.consumption, unit_rates)
+            consumption_cost = sum(period['calculated_cost'] for period in period_costs)
 
         return CostBreakdown(
-                consumption_cost=total_con_cost,
+                consumption_cost=consumption_cost,
                 standing_charge=account_info.standing_charge,
-                total_cost=total_con_cost + account_info.standing_charge,
+                total_cost=consumption_cost + account_info.standing_charge,
                 total_kwh=total_kwh
             )
 
@@ -181,13 +192,17 @@ class ComparisonEngine:
         period_costs = []
         for consumption in consumption_data:
             read_time = consumption['readAt'].replace('+00:00', 'Z')
-            matching_rate = next(
+            matching_rate = next((
                 rate for rate in rate_data
                 # Flexible has no end time, so default to the end of time
                 if rate['valid_from'] <= read_time <= (rate.get('valid_to') or "9999-12-31T23:59:59Z")
                 # DIRECT_DEBIT is for flexible that has different price for direct debit or not
                 and rate['payment_method'] in [None, "DIRECT_DEBIT"]
-            )
+            ), None)
+
+            if matching_rate is None:
+                logger.warning(f"No rate covers {read_time}; skipping that period")
+                continue
 
             consumption_kwh = float(consumption['consumptionDelta']) / 1000
             cost = float("{:.4f}".format(consumption_kwh * matching_rate['value_inc_vat']))
@@ -201,33 +216,29 @@ class ComparisonEngine:
 
         return period_costs
 
-    def _get_potential_tariff_rates(self, tariff: Tariff, region_code: str) -> Tuple[float, list[dict], str]:
-        """
-        Get rates for a specific tariff and region
-        """
-
+    def _find_product_code(self, display_name: str) -> str:
+        """Resolve an Octopus product code from its display name."""
         all_products = self.query_service.execute_rest_query(f"{config.BASE_URL}/products/?brand=OCTOPUS_ENERGY&is_business=false")
         product = next((
             product for product in all_products['results']
-            if product['display_name'] == tariff.api_display_name
+            if product['display_name'] == display_name
             and product['direction'] == "IMPORT"
         ), None)
 
         if not product:
-            raise ValueError(f"No matching tariff found for {tariff.api_display_name}")
+            raise ValueError(f"No matching tariff found for {display_name}")
 
         product_code = product.get('code')
         if product_code is None:
-            raise ValueError(f"No product code found for {tariff.api_display_name}")
+            raise ValueError(f"No product code found for {display_name}")
+        return product_code
 
-        product_link = next((
-            item.get('href') for item in product.get('links', [])
-            if item.get('rel', '').lower() == 'self'
-        ), None)
-        if not product_link:
-            raise ValueError(f"Self link not found for tariff {product_code}.")
+    def _get_product_rates(self, product_code: str, region_code: str) -> Tuple[float, list[dict]]:
+        """Fetch (standing_charge_inc_vat, unit_rates) for a product code and region."""
+        if not product_code:
+            raise ValueError("No product code supplied to fetch rates for")
 
-        tariff_details = self.query_service.execute_rest_query(product_link)
+        tariff_details = self.query_service.execute_rest_query(f"{config.BASE_URL}/products/{product_code}/")
 
         # Get the standing charge including VAT
         region_code_key = f'_{region_code}'
@@ -252,9 +263,22 @@ class ComparisonEngine:
         if not unit_rates_link:
             raise ValueError(f"Standard unit rates link not found for region: {region_code_key}")
 
-        # Get today's rates
+        # Rates spanning the day. Widen by a day either side so a local midnight
+        # (which falls on the previous UTC day during BST) is still covered.
         today = date.today()
-        unit_rates_link_with_time = f"{unit_rates_link}?period_from={today}T00:00:00Z&period_to={today}T23:59:59Z"
+        period_from = (today - timedelta(days=1)).isoformat()
+        period_to = (today + timedelta(days=1)).isoformat()
+        unit_rates_link_with_time = (
+            f"{unit_rates_link}?period_from={period_from}T00:00:00Z&period_to={period_to}T23:59:59Z"
+        )
         unit_rates = self.query_service.execute_rest_query(unit_rates_link_with_time)
 
-        return standing_charge_inc_vat, unit_rates.get('results', []), product_code
+        return standing_charge_inc_vat, unit_rates.get('results', [])
+
+    def _get_potential_tariff_rates(self, tariff: Tariff, region_code: str) -> Tuple[float, list[dict], str]:
+        """
+        Get rates for a specific tariff and region
+        """
+        product_code = self._find_product_code(tariff.api_display_name)
+        standing_charge_inc_vat, unit_rates = self._get_product_rates(product_code, region_code)
+        return standing_charge_inc_vat, unit_rates, product_code

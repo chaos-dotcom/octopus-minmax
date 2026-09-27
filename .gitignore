@@ -166,3 +166,12 @@ cython_debug/
 .idea/
 
 .DS_Store
+
+# Zed project settings (contains the Home Assistant MCP token) — keep local only
+.zed/settings.json
+
+# Runtime logs (bot output + Home Assistant MCP usage log)
+logs/
+
+# Local analysis scripts (contain my meter serial / MPAN identifiers)
+tools/

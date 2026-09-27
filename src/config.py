@@ -32,3 +32,18 @@ DRY_RUN = os.getenv("DRY_RUN", "false") in ["true", "True", "1"]
 WEB_USERNAME = os.getenv("WEB_USERNAME", "admin")
 WEB_PASSWORD = os.getenv("WEB_PASSWORD", "admin")
 WEB_PORT = int(os.getenv("WEB_PORT", 5050))
+
+# --- Consumption source -----------------------------------------------------
+# Where the bot reads today's electricity usage from.
+#   "homeassistant" - half-hourly grid import read from Home Assistant (no Home Mini needed)
+#   "octopus"       - the Octopus smartMeterTelemetry feed (requires an Octopus Home Mini)
+CONSUMPTION_SOURCE = os.getenv("CONSUMPTION_SOURCE", "homeassistant").strip().lower()
+
+# Home Assistant API (used when CONSUMPTION_SOURCE == "homeassistant").
+# Running as a Home Assistant add-on these default to the Supervisor proxy.
+HA_URL = os.getenv("HA_URL", "http://supervisor/core/api").rstrip("/")
+HA_TOKEN = os.getenv("HA_TOKEN") or os.getenv("SUPERVISOR_TOKEN", "")
+# Cumulative grid-import energy sensor (kWh). Half-hourly deltas are derived from it.
+HA_IMPORT_ENTITY = os.getenv("HA_IMPORT_ENTITY", "sensor.predbat_givtcp_0_import_total")
+# Timezone used to work out "today" (should match the Home Assistant instance).
+TIMEZONE = os.getenv("TZ", "Europe/London")

@@ -134,7 +134,9 @@ class BotOrchestrator:
             else:
                 self._execute_switch(results.cheapest_tariff, account_info)
         else:
-            if results.cheapest_tariff == results.current_tariff_comparison.tariff:
+            if results.cheapest_tariff is None:
+                message = "Not switching today - no valid alternative tariffs to compare against."
+            elif results.cheapest_tariff == results.current_tariff_comparison.tariff:
                 message = (f"You are already on the cheapest tariff: "
                           f"{results.cheapest_tariff.display_name} at "
                           f"£{results.current_tariff_comparison.cost_breakdown.total_cost_pounds:.2f}")

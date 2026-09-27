@@ -34,5 +34,6 @@ TARIFFS = [
     Tariff("go-fix-12m", "Octopus Go 12M Fixed", "Octopus Go 12M Fixed", r"-go-fix-", "go", True),
     Tariff("agile", "Agile Octopus", "Agile Octopus", r"-agile-", "agile", True), # Octopus Agile
     Tariff("cosy", "Cosy Octopus", "Cosy Octopus", r"-cosy-(?!.*fix)", r"cosy-octopus", True), # Octopus Cosy (Variable is the default so don't match anything with 'fix' in the name)
+    Tariff("cosy-fix", "Cosy Octopus 12M Fixed", "Cosy Octopus 12M Fixed", r"-cosy-.*fix", r"cosy-octopus", False), # Cosy Octopus 12M Fixed. Grandfathered (no longer open to new joins) so not switchable-to, but recognised so it can be your current tariff.
     Tariff("flexible", "Flexible Octopus", "Flexible Octopus", r"(?<!go-)var", "", False) # Flexible Octopus
 ]

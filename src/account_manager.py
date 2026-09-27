@@ -6,6 +6,7 @@ import config
 from account_info import AccountInfo
 from tariff import Tariff
 from query_service import QueryService
+from home_assistant_client import HomeAssistantClient
 from queries import (
     get_terms_version_query,
     accept_terms_query,
@@ -100,6 +101,33 @@ class AccountManager:
         if not self.mpan:
             raise Exception("ERROR: No MPAN found for the IMPORT meter")
 
+        current_product_code = tariff_data.get("productCode")
+        if not current_product_code:
+            raise Exception("ERROR: No product code found for the IMPORT tariff")
+
+        matching_tariff_obj = next((tariff for tariff in self.available_tariffs if tariff.is_tariff(tariff_code)), None)
+        if matching_tariff_obj is None:
+            raise Exception(f"ERROR: Found no supported tariff object for '{tariff_code}' among available tariffs.")
+
+        consumption_data = self._fetch_consumption(meter_point_details)
+
+        self._current_account_info = AccountInfo(
+            current_tariff=matching_tariff_obj,
+            standing_charge=current_standing_charge,
+            region_code=self.region_code,
+            consumption=consumption_data,
+            mpan=self.mpan,
+            product_code=current_product_code,
+        )
+        return self._current_account_info
+
+    def _fetch_consumption(self, meter_point_details) -> list:
+        """Get today's half-hourly import from the configured source."""
+        if self.config.CONSUMPTION_SOURCE == "homeassistant":
+            logger.info("Consumption source: Home Assistant")
+            return HomeAssistantClient().get_today_half_hourly_consumption()
+
+        logger.info("Consumption source: Octopus smartMeterTelemetry")
         # Reset device_id before trying to find it
         self.device_id = None
         for meter in meter_point_details.get("meters", []):
@@ -111,11 +139,10 @@ class AccountManager:
                 break
 
         if not self.device_id:
-            raise Exception("ERROR: No device ID found for the IMPORT meter")
-
-        matching_tariff_obj = next((tariff for tariff in self.available_tariffs if tariff.is_tariff(tariff_code)), None)
-        if matching_tariff_obj is None:
-            raise Exception(f"ERROR: Found no supported tariff object for '{tariff_code}' among available tariffs.")
+            raise Exception(
+                "ERROR: No device ID found for the IMPORT meter. "
+                "Set CONSUMPTION_SOURCE=homeassistant to read usage from Home Assistant instead."
+            )
 
         # Get consumption for today
         consumption_gql_query = consumption_query.format(
@@ -124,16 +151,7 @@ class AccountManager:
             end_date=f"{date.today()}T23:59:59Z"
         )
         consumption_result = self.query_service.execute_gql_query(consumption_gql_query)
-        consumption_data = consumption_result.get('smartMeterTelemetry', [])
-
-        self._current_account_info = AccountInfo(
-            current_tariff=matching_tariff_obj,
-            standing_charge=current_standing_charge,
-            region_code=self.region_code,
-            consumption=consumption_data,
-            mpan=self.mpan
-        )
-        return self._current_account_info
+        return consumption_result.get('smartMeterTelemetry', [])
 
     def initiate_tariff_switch(self, target_product_code: str) -> Optional[str]:
         """Initiates the process of switching to a new electricity tariff."""

@@ -1,7 +1,7 @@
 ---
 name: Octopus MinMax Bot
-image: eelmafia/octopus-minmax-bot
-url: https://github.com/eelmafia/octopus-minmax
+image: ghcr.io/chaos-dotcom/octopus-minmax-bot
+url: https://github.com/chaos-dotcom/octopus-minmax
 ingress: true
 ingress_port: 5050
 ports:
@@ -9,11 +9,12 @@ ports:
 ports_description:
   5050/tcp: Web UI (optional external access)
 webui: http://[HOST]:[PORT:5050]/
-version: v1.0.9
+version: v1.1.0
 slug: octopus_minmax_bot
 startup: application
 init: false
 legacy: true
+homeassistant_api: true
 description: A bot to automatically compare and switch smart electricity tariffs on Octopus Energy
 arch:
   - armhf
@@ -28,7 +29,11 @@ options:
   ONE_OFF: false
   DRY_RUN: false
   NOTIFICATION_URLS: ""
-  TARIFFS: "agile,go,flexible"
+  CONSUMPTION_SOURCE: "homeassistant"
+  HA_URL: "http://supervisor/core/api"
+  HA_TOKEN: ""
+  HA_IMPORT_ENTITY: "sensor.predbat_givtcp_0_import_total"
+  TARIFFS: "cosy-fix,cosy,agile,go,flexible"
   TZ: "Europe/London"
   BATCH_NOTIFICATIONS: false
   WEB_USERNAME: "admin"
@@ -41,6 +46,10 @@ schema:
   ONE_OFF: bool
   DRY_RUN: bool
   NOTIFICATION_URLS: str
+  CONSUMPTION_SOURCE: "list(homeassistant|octopus)"
+  HA_URL: str
+  HA_TOKEN: password
+  HA_IMPORT_ENTITY: str
   TARIFFS: str
   TZ: str
   BATCH_NOTIFICATIONS: bool

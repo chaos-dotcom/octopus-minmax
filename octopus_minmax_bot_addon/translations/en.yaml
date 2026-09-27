@@ -24,6 +24,18 @@ configuration:
   TARIFFS:
     name: Tariffs
     description: Tariffs you want to compare with. See README.md for options.
+  CONSUMPTION_SOURCE:
+    name: Consumption Source
+    description: Where to read today's usage from. "homeassistant" reads half-hourly grid import from a Home Assistant energy sensor (no Octopus Home Mini needed). "octopus" uses the Home Mini telemetry feed.
+  HA_URL:
+    name: Home Assistant API URL
+    description: Base URL of the Home Assistant API. Defaults to the add-on Supervisor proxy; only change this if running outside Home Assistant.
+  HA_TOKEN:
+    name: Home Assistant Token
+    description: Long-lived access token. Leave blank when running as an add-on - the Supervisor token is used automatically.
+  HA_IMPORT_ENTITY:
+    name: Grid Import Sensor
+    description: The cumulative grid-import energy sensor (kWh) to read usage from, e.g. your GivTCP/inverter import total.
   TZ:
     name: Timezone
     description: Timezone for container

@@ -18,6 +18,11 @@ services:
       - NOTIFICATION_URLS=<your_apprise_notification_urls>
       - ONE_OFF=false
       - DRY_RUN=false
-      - TARIFFS=agile,flexible
+      - TARIFFS=cosy-fix,cosy,agile,go,flexible
+      # Read today's usage from Home Assistant instead of the Octopus Home Mini feed
+      - CONSUMPTION_SOURCE=homeassistant
+      - HA_URL=https://your-home-assistant:8123/api
+      - HA_TOKEN=<your_long_lived_access_token>
+      - HA_IMPORT_ENTITY=sensor.givtcp_ch2315g326_import_energy_total_kwh
       - WEB_USERNAME=admin
       - WEB_PASSWORD=admin # not meant to be secure
