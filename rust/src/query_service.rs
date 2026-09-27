@@ -242,6 +242,7 @@ impl QueryService {
                             repr_json(&parsed)
                         );
                         if current.ok() {
+                            let mut gql_error: Option<String> = None;
                             if let Some(errors) = parsed.get("errors") {
                                 let codes: Vec<Option<String>> = errors
                                     .as_array()
@@ -279,19 +280,33 @@ impl QueryService {
                                         ),
                                     }
                                 }
-                                return Err(AppError::new(format!("GQL errors: {}", repr_json(errors))));
+                                gql_error = Some(format!("GQL errors: {}", repr_json(errors)));
                             }
                             let data = parsed.get("data");
                             match data {
                                 Some(value)
-                                    if value.is_object()
+                                    if gql_error.is_none()
+                                        && value.is_object()
                                         && !value.as_object().unwrap().is_empty() =>
                                 {
                                     return Ok(value.clone())
                                 }
                                 _ => {
-                                    return Err(AppError::new("No 'data' returned from GraphQL query"))
+                                    if gql_error.is_none() {
+                                        gql_error = Some(
+                                            "No 'data' returned from GraphQL query".to_string(),
+                                        );
+                                    }
                                 }
+                            }
+                            if let Some(message) = gql_error {
+                                // The reference raises GQL errors inside its `try`, so its handler
+                                // logs this and retries; the wrapped message appears only on the
+                                // final attempt. Route it through the same retry path.
+                                raised = Some(Raised {
+                                    type_name: "Exception",
+                                    message,
+                                });
                             }
                         }
                         if (current.status == 401 || current.status == 403) && !token_refreshed {

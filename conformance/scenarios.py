@@ -132,6 +132,15 @@ SCENARIOS = {
         env=octopus(SWITCH_THRESHOLD="10"),
         gql_kt1124_at=[2], min_notifications=5, timeout=90, settle_after=3),
 
+    # A non-1124 GraphQL error (KT-CT-1111) on the account query.  The reference raises it
+    # inside its `try`, so the handler logs the warning and retries the query after the
+    # backoff, then it succeeds.  The port must do the same - same warning line, same extra
+    # request - rather than failing on the first response.
+    "octopus-gql-error": dict(
+        fixture=dict(telemetry_costs=True, telemetry_costs_override=[4.0, 3.0, 2.0]),
+        env=octopus(SWITCH_THRESHOLD="10"),
+        gql_error_at=[2], min_notifications=5, timeout=140, settle_after=3),
+
     # A tariff whose rates do not cover every consumption period.
     "octopus-missing-rate": dict(
         fixture=dict(telemetry_costs=True, telemetry_costs_override=[4.0, 3.0, 2.0],

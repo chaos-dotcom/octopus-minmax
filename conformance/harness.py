@@ -70,6 +70,17 @@ def build_octopus_handler(fx, scenario, captures):
                 body = {"errors": [{"message": "JWT expired",
                                     "extensions": {"errorCode": "KT-CT-1124"}}]}
                 return 200, [("Content-Type", "application/json")], json.dumps(body)
+            if scenario.get("gql_error_at") and n in scenario["gql_error_at"]:
+                body = {"errors": [{"message": "Unauthorized.",
+                                    "locations": [{"line": 2, "column": 3}],
+                                    "path": ["account"],
+                                    "extensions": {
+                                        "errorType": "AUTHORIZATION",
+                                        "errorCode": "KT-CT-1111",
+                                        "errorDescription": "The viewer is not authorized to "
+                                                            "execute the query/mutation. Check "
+                                                            "authentication or roles/permissions."}}]}
+                return 200, [("Content-Type", "application/json")], json.dumps(body)
             payload = json.loads(req.body.decode("utf-8"))
             return json_response(fx.graphql(payload["query"]))
         path_only = path.split("?")[0]

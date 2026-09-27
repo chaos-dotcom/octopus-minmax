@@ -57,11 +57,23 @@ artifacts identical: 272/272
 no differences
 ```
 
+Re-verified after adding the `octopus-gql-error` scenario, which returns a generic
+`KT-CT-1111` error (via `gql_error_at`) on the account query so the reference's
+raise-inside-`try` retry path is exercised (run in isolation, both implementations,
+reference fetched from the `v1.1.0` tag):
+
+```
+scenarios compared: 1
+artifacts identical: 17/17
+no differences
+```
+
 The scenario matrix: the full switch flow (compare, switch, accept terms, verify), the
 verification-retry flow, dry run, batching, no-notifications, below-threshold,
 already-cheapest, an unknown tariff ID, the current tariff being the grandfathered
 Cosy 12M Fixed, no IMPORT meter, no smart device, an unknown tariff code, a 401 that
-forces a token refresh, a KT-CT-1124 JWT refresh, a tariff whose rates do not cover a
+forces a token refresh, a KT-CT-1124 JWT refresh, a non-`KT-CT-1124` (`KT-CT-1111`)
+GraphQL error that the query retries through the backoff, a tariff whose rates do not cover a
 period, the Home Assistant consumption source (normal, empty history, no token), and,
 in every scenario, 14 raw dashboard requests (auth, no auth, bad auth, ingress headers,
 config GET/POST valid/invalid, logs, 404, 405, HTTP/1.0, connection reuse).
