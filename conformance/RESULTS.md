@@ -1,8 +1,9 @@
 # Rust port: byte-level conformance, size and memory
 
-Branch: `rust`.  The implementation is `rust/` (one binary crate, no runtime
-interpreter); the Python sources in `src/` are kept as the reference the conformance
-suite compares against, and `dockerfile` now builds the Rust binary.
+Development happened on the `rust` branch, now merged into `main` (v1.2.0).  The
+implementation is `rust/` (one binary crate, no runtime interpreter); the Python sources
+in `src/` are kept as the reference the conformance suite compares against, and
+`dockerfile` builds the Rust binary.
 
 ## 1. What "byte identical" means here, and how it was checked
 

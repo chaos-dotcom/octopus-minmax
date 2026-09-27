@@ -1,11 +1,11 @@
 # Octopus Minmax Bot 🐙🤖
 
-## Rust rewrite (branch `rust`)
+## Implementation
 
-This branch replaces the Python implementation with a Rust implementation that is
-byte-compatible with it.  `src/` (Python) is kept in the tree as the reference the
-conformance suite compares against; the shipped artefact is the Rust binary, and the
-Dockerfile builds it.
+The bot is a single Rust binary (`rust/`), byte-compatible with the Python version it
+replaced.  The Python sources in `src/` are kept as the reference the conformance suite
+compares against; the Dockerfile, the release workflow and the Home Assistant add-on all
+build and ship the Rust binary.
 
 ### Build and run
 
