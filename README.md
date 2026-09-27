@@ -39,6 +39,15 @@ python3 conformance/compare.py --reference /tmp/art/py --candidate /tmp/art/rs
 
 `conformance/measure.py` reports deployment size and resident memory for both.
 
+Current result: **306/306 artifacts byte-identical over 18 scenarios** (see
+`conformance/RESULTS.md` for the normalization list and the accepted differences).
+
+| | Python | Rust |
+|---|---|---|
+| container image | 269 MB | 141 MB |
+| runtime on disk (source + deps / binary) | 20.7 MiB | 2.74 MiB |
+| resident memory, idle dashboard | 49.5 MiB | 6.5 MiB |
+
 ## Description
 This bot will use your electricity usage and compare your current Smart tariff costs for the day with another smart tariff and initiate a switch if it's cheaper. See below for supported tariffs.
 
