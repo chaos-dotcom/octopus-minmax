@@ -48,6 +48,15 @@ artifacts identical: 306/306
 no differences
 ```
 
+Re-verified after the Python tree was deleted (`bef4260`), with the reference fetched from
+the `v1.1.0` tag by `conformance/fetch_reference.sh`:
+
+```
+scenarios compared: 16
+artifacts identical: 272/272
+no differences
+```
+
 The scenario matrix: the full switch flow (compare, switch, accept terms, verify), the
 verification-retry flow, dry run, batching, no-notifications, below-threshold,
 already-cheapest, an unknown tariff ID, the current tariff being the grandfathered
