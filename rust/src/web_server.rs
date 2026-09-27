@@ -19,9 +19,8 @@ use crate::{loge, logi};
 /// (`Werkzeug/3.1.9 Python/3.11.15`) to make responses byte-identical including
 /// this header, which exists only to identify the HTTP implementation.
 fn server_header() -> String {
-    std::env::var("OCTO_SERVER_HEADER").unwrap_or_else(|_| {
-        format!("octo-minmax/{} (Rust)", env!("CARGO_PKG_VERSION"))
-    })
+    std::env::var("OCTO_SERVER_HEADER")
+        .unwrap_or_else(|_| format!("octo-minmax/{} (Rust)", crate::config::get().bot_version))
 }
 
 const BODY_404: &str = "<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n";
