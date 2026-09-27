@@ -1,5 +1,56 @@
 # Octopus Minmax Bot 🐙🤖
 
+## Implementation
+
+The bot is a single Rust binary (`rust/`), byte-compatible with the Python version it
+replaced.  The Python sources in `src/` are kept as the reference the conformance suite
+compares against; the Dockerfile, the release workflow and the Home Assistant add-on all
+build and ship the Rust binary.
+
+### Build and run
+
+```bash
+cargo build --release --manifest-path rust/Cargo.toml
+cd /some/working/directory          # logs/octobot.log is written relative to the CWD
+/path/to/octo-minmax
+```
+
+Environment variables, log file (`logs/octobot.log`, rotated at 10 MiB with 5
+backups), notifications, the web dashboard on port 5050 and the GraphQL/REST traffic
+to Octopus are all identical to the Python version - including the byte-level details
+(header order, `json.dumps` spacing, Python `repr()` in log lines, Werkzeug error
+pages, the Flask flash cookie).
+
+The one intentional difference is the `Server:` response header, which identifies the
+HTTP implementation.  Set `OCTO_SERVER_HEADER` to reproduce the reference value.
+
+### Conformance suite
+
+`conformance/` runs both implementations through the same scenarios against mock
+Octopus Energy, Home Assistant and Apprise endpoints, records every byte each one
+produces (requests on the wire, notifications, logs, stdout/stderr, web responses)
+and diffs the two runs:
+
+```bash
+python3 conformance/run_all.py --impl py --out /tmp/art/py
+python3 conformance/run_all.py --impl rs --out /tmp/art/rs
+python3 conformance/compare.py --reference /tmp/art/py --candidate /tmp/art/rs
+```
+
+`conformance/measure.py` reports deployment size and resident memory for both.
+
+Current result: **306/306 artifacts byte-identical over 18 scenarios** (see
+`conformance/RESULTS.md` for the normalization list and the accepted differences).
+
+| | Python | Rust |
+|---|---|---|
+| container image | 269 MB | 141 MB |
+| runtime on disk (source + deps / binary) | 20.7 MiB | 2.74 MiB |
+| resident memory, idle dashboard | 49.5 MiB | 6.5 MiB |
+| CPU per dashboard request | 443 us | 47 us |
+| start-up CPU | 0.096 s | 0.0037 s |
+| idle CPU (dashboard up) | 0.0 % | 0.0 % |
+
 ## Description
 This bot will use your electricity usage and compare your current Smart tariff costs for the day with another smart tariff and initiate a switch if it's cheaper. See below for supported tariffs.
 
