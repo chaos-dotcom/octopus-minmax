@@ -127,9 +127,11 @@ cannot exist in Rust.  No application-authored byte is normalized away.
    unpredictable in both implementations (the port uses a seeded xorshift).  Scenarios
    run in ONE_OFF mode, where the reference is deterministic.
 
-## 5. Size and memory
+## 5. Size, memory and CPU
 
-Measured by `conformance/measure.py` (`conformance/measurements.json`).
+Measured by `conformance/measure.py` (`conformance/measurements.json`).  CPU is the
+child's own user+sys time from `getrusage(RUSAGE_CHILDREN)` (microsecond resolution),
+measured over three repeats of each phase.
 
 ### Container image (each project's own Dockerfile)
 
@@ -155,7 +157,27 @@ interpreter, no `site-packages`, no `libpython`).
 | Python | 49.5 MiB | 49.5 MiB |
 | Rust | **6.5 MiB** | 6.5 MiB |
 
-**7.6x less resident memory**, 1.9x smaller image, 7.6x smaller on-disk deployment.
+### CPU (median of 3 repeats)
+
+| workload | Python | Rust |
+|---|---|---|
+| start-up (launch, bind, exit) | 0.096 s | **0.0037 s** (26x less) |
+| idle, dashboard up, 6 s window | 0.000 s (0.0 %) | 0.000 s (0.0 %) |
+| 1000 authenticated `GET /` requests: **CPU** | 0.540 s | **0.051 s** (10.6x less) |
+| ... per request | 443 µs | **47 µs** (9.4x less) |
+| ... wall clock | 11.49 s | 0.085 s |
+| ... requests/second | 87 | 11,785 |
+| one-off comparison run (14 API calls, 5 notifications) | 0.156 s | **0.0064 s** (24x less) |
+
+Both servers are thread-per-connection (Flask passes `threaded=True` by default) and the
+same client loop drives both, so the per-request CPU figures are comparable.  The
+dashboard's wall-clock gap is *waiting*, not work: the reference spends ~11.5 ms of wall
+time per request against 0.44 ms of CPU (its development server writes the header block
+and the body as separate small writes), while the port writes one buffer per response.
+Idle CPU is zero for both - the serving threads block in `accept`.
+
+**Summary: 7.6x less resident memory, 10x less CPU per dashboard request, 26x less
+start-up CPU, 1.9x smaller image, 7.6x smaller on-disk deployment.**
 
 ## 6. Tests
 

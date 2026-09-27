@@ -47,6 +47,9 @@ Current result: **306/306 artifacts byte-identical over 18 scenarios** (see
 | container image | 269 MB | 141 MB |
 | runtime on disk (source + deps / binary) | 20.7 MiB | 2.74 MiB |
 | resident memory, idle dashboard | 49.5 MiB | 6.5 MiB |
+| CPU per dashboard request | 443 us | 47 us |
+| start-up CPU | 0.096 s | 0.0037 s |
+| idle CPU (dashboard up) | 0.0 % | 0.0 % |
 
 ## Description
 This bot will use your electricity usage and compare your current Smart tariff costs for the day with another smart tariff and initiate a switch if it's cheaper. See below for supported tariffs.
