@@ -1,0 +1,14 @@
+{
+  "body_bytes": 135,
+  "captured_at": 1790536744.218229,
+  "chunked": false,
+  "head_lines": "POST /bot123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/sendMessage HTTP/1.1",
+  "index": 4,
+  "label": "tgram",
+  "listener_host_header_expected": null,
+  "local_port": 18812,
+  "peer": "127.0.0.1:57333",
+  "proto": "https",
+  "raw_len_without_body": 245,
+  "request_bytes": 380
+}

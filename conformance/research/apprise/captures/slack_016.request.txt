@@ -1,0 +1,10 @@
+POST /services/AAA111BBB1/BBB222CCC2/CCC333DDD3 HTTP/1.1
+Host: hooks.slack.com
+User-Agent: Apprise
+Accept-Encoding: gzip, deflate
+Accept: application/json
+Connection: keep-alive
+Content-Type: application/json; charset=utf-8
+Content-Length: 580
+
+{"username": "Apprise", "mrkdwn": true, "attachments": [{"title": "Octopus MinMax Results - Sun 27 Sep 23:00", "text": "quote \" and backslash \\ then newline\ntab\there, unicode \u00a3 \u00e9 \ud83d\udc19, html &lt;b&gt;&amp;amp;&lt;/b&gt;\r\ntrailing space", "color": "#3AA3E3", "ts": 1790536314.349945, "footer_icon": "https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-info-72x72.png", "footer": "Apprise"}], "icon_url": "https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-info-72x72.png", "channel": "#general"}

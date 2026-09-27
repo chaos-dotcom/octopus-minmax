@@ -1,0 +1,10 @@
+POST /bot123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/sendMessage HTTP/1.1
+Host: api.telegram.org
+User-Agent: Apprise
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Content-Type: application/json
+Content-Length: 192
+
+{"disable_notification": false, "disable_web_page_preview": true, "parse_mode": "MARKDOWN", "text": "# Octopus MinMax Results - Sun 27 Sep 23:00\r\n# Head\nline1\nline2", "chat_id": 987654321}

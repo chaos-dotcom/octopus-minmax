@@ -1,0 +1,32 @@
+{
+  "add": [
+    [
+      "",
+      false
+    ]
+  ],
+  "body_chars": 11,
+  "case": "err_empty_url",
+  "connect_redirects": [],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "ERROR",
+      "logger": "apprise",
+      "msg": "There are no service(s) to notify"
+    }
+  ],
+  "new_files": [],
+  "notify_exception": null,
+  "notify_return": false,
+  "notify_seconds": 0.0,
+  "servers": [],
+  "title": "Octopus MinMax Results - Sun 27 Sep 23:00",
+  "urls": [
+    ""
+  ]
+}

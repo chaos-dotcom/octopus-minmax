@@ -1,0 +1,120 @@
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.11.15
+Date: Sun, 27 Sep 2026 19:08:51 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 8755
+Connection: close
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octopus MinMax Bot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <nav class="bg-gray-800 border-b border-gray-700 px-6 py-4">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-2xl font-bold text-blue-400">🐙 Octopus MinMax Bot</h1>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        <!-- Flash messages -->
+        
+            
+        
+
+        
+<div class="max-w-6xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-bold text-gray-100">Bot Logs</h2>
+        <a href="." class="text-blue-400 hover:text-blue-300">← Back to Dashboard</a>
+    </div>
+
+    <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 overflow-hidden">
+        <div id="log-container" class="bg-black rounded p-4 overflow-y-auto" style="max-height: 70vh;">
+            <div class="text-sm font-mono text-gray-300">
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.bot_orchestrator - DEBUG - bot_orchestrator.__init__ - Initialising BotOrchestrator
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.notification_service - WARNING - notification_service.send_notification - No notification services configured. Check config.NOTIFICATION_URLS.
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.web_server - INFO - web_server.run_server - Web server starting on http://localhost:5050
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.notification_service - INFO - notification_service.send_notification - [27/09/2026 20:06] Octobot v.local - ONE_OFF mode enabled 
+ Check port 5050 for dashboard.
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.notification_service - WARNING - notification_service.send_notification - No notification services configured. Check config.NOTIFICATION_URLS.
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.notification_service - INFO - notification_service.send_notification - [27/09/2026 20:06] Octobot v.local - Running one-off comparison
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.bot_orchestrator - DEBUG - bot_orchestrator._initialize - bot_orchestrator
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.bot_orchestrator - DEBUG - bot_orchestrator._load_tariffs_from_ids -  Requested tariff IDs - {&#39;go&#39;, &#39;flexible&#39;, &#39;agile&#39;}
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.query_service - DEBUG - query_service.__init__ - Initialising QueryService
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.query_service - DEBUG - query_service._get_token - Getting token
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.query_service - ERROR - query_service._get_token - Failed to get token: ConnectionError - HTTPConnectionPool(host=&#39;127.0.0.1&#39;, port=9): Max retries exceeded with url: /graphql/ (Caused by NewConnectionError(&#34;HTTPConnection(host=&#39;127.0.0.1&#39;, port=9): Failed to establish a new connection: [Errno 61] Connection refused&#34;))
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.notification_service - WARNING - notification_service.send_notification - No notification services configured. Check config.NOTIFICATION_URLS.
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:06:53 - octobot.notification_service - INFO - notification_service.send_notification - ```py
+Failed to get token
+```
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:07:11 - octobot.web_server - INFO - web_server.config_page - Config update submitted: {&#39;api_key&#39;: &#39;x&#39;, &#39;acc_number&#39;: &#39;A-00000000&#39;, &#39;base_url&#39;: &#39;http://127.0.0.1:9&#39;, &#39;execution_time&#39;: &#39;23:00&#39;, &#39;switch_threshold&#39;: &#39;2&#39;, &#39;tariffs&#39;: &#39;go,agile,flexible&#39;, &#39;notification_urls&#39;: &#39;&#39;, &#39;batch_notifications&#39;: &#39;false&#39;}
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:07:11 - octobot.web_server - INFO - web_server.config_page - Config updated successfully. New state: {&#39;api_key&#39;: &#39;x&#39;, &#39;acc_number&#39;: &#39;A-00000000&#39;, &#39;base_url&#39;: &#39;http://127.0.0.1:9&#39;, &#39;execution_time&#39;: &#39;23:00&#39;, &#39;switch_threshold&#39;: 2, &#39;tariffs&#39;: &#39;go,agile,flexible&#39;, &#39;one_off_run&#39;: False, &#39;one_off_executed&#39;: True, &#39;dry_run&#39;: False, &#39;notification_urls&#39;: &#39;&#39;, &#39;batch_notifications&#39;: False}
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:07:53 - octobot.web_server - INFO - web_server.config_page - Config update submitted: {&#39;api_key&#39;: &#39;x&#39;, &#39;acc_number&#39;: &#39;A-00000000&#39;, &#39;base_url&#39;: &#39;http://127.0.0.1:9&#39;, &#39;execution_time&#39;: &#39;23:00&#39;, &#39;switch_threshold&#39;: &#39;2&#39;, &#39;tariffs&#39;: &#39;go,agile,flexible&#39;, &#39;notification_urls&#39;: &#39;&#39;, &#39;batch_notifications&#39;: &#39;false&#39;}
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:07:53 - octobot.web_server - INFO - web_server.config_page - Config updated successfully. New state: {&#39;api_key&#39;: &#39;x&#39;, &#39;acc_number&#39;: &#39;A-00000000&#39;, &#39;base_url&#39;: &#39;http://127.0.0.1:9&#39;, &#39;execution_time&#39;: &#39;23:00&#39;, &#39;switch_threshold&#39;: 2, &#39;tariffs&#39;: &#39;go,agile,flexible&#39;, &#39;one_off_run&#39;: False, &#39;one_off_executed&#39;: True, &#39;dry_run&#39;: False, &#39;notification_urls&#39;: &#39;&#39;, &#39;batch_notifications&#39;: False}
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:08:06 - octobot.web_server - INFO - web_server.config_page - Config update submitted: {&#39;api_key&#39;: &#39;x&#39;, &#39;acc_number&#39;: &#39;A-00000000&#39;, &#39;base_url&#39;: &#39;http://127.0.0.1:9&#39;, &#39;execution_time&#39;: &#39;23:00&#39;, &#39;switch_threshold&#39;: &#39;2&#39;, &#39;tariffs&#39;: &#39;go,agile,flexible&#39;, &#39;notification_urls&#39;: &#39;&#39;, &#39;batch_notifications&#39;: &#39;false&#39;}
+</div>
+                
+                    <div class="border-b border-gray-800 pb-2 mb-2 whitespace-pre-wrap">2026-09-27 20:08:06 - octobot.web_server - INFO - web_server.config_page - Config updated successfully. New state: {&#39;api_key&#39;: &#39;x&#39;, &#39;acc_number&#39;: &#39;A-00000000&#39;, &#39;base_url&#39;: &#39;http://127.0.0.1:9&#39;, &#39;execution_time&#39;: &#39;23:00&#39;, &#39;switch_threshold&#39;: 2, &#39;tariffs&#39;: &#39;go,agile,flexible&#39;, &#39;one_off_run&#39;: False, &#39;one_off_executed&#39;: True, &#39;dry_run&#39;: False, &#39;notification_urls&#39;: &#39;&#39;, &#39;batch_notifications&#39;: False}
+</div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Scroll to bottom on page load
+    window.addEventListener('load', function() {
+        const logContainer = document.getElementById('log-container');
+        logContainer.scrollTop = logContainer.scrollHeight;
+    });
+</script>
+
+    </main>
+</body>
+</html>

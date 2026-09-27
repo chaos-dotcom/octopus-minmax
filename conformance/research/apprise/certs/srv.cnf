@@ -1,0 +1,24 @@
+[req]
+distinguished_name = dn
+prompt = no
+req_extensions = v3_req
+[dn]
+CN = capture.local
+[v3_req]
+basicConstraints = CA:FALSE
+keyUsage = critical,digitalSignature,keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt
+[alt]
+DNS.1 = discord.com
+DNS.2 = discordapp.com
+DNS.3 = api.telegram.org
+DNS.4 = slack.com
+DNS.5 = hooks.slack.com
+DNS.6 = api.pushover.net
+DNS.10 = ntfy.sh
+DNS.11 = ntfy.com
+DNS.7 = gotify.local
+DNS.8 = ntfy.local
+DNS.9 = localhost
+IP.1 = 127.0.0.1

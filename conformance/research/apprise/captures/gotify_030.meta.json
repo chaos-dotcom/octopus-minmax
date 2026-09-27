@@ -1,0 +1,14 @@
+{
+  "body_bytes": 96,
+  "captured_at": 1790536373.637253,
+  "chunked": false,
+  "head_lines": "POST /message HTTP/1.1",
+  "index": 30,
+  "label": "gotify",
+  "listener_host_header_expected": null,
+  "local_port": 18804,
+  "peer": "127.0.0.1:56918",
+  "proto": "http",
+  "raw_len_without_body": 218,
+  "request_bytes": 314
+}

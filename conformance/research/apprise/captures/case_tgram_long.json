@@ -1,0 +1,63 @@
+{
+  "add": [
+    [
+      "tgram://123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/987654321",
+      true
+    ]
+  ],
+  "body_chars": 4999,
+  "case": "tgram_long",
+  "connect_redirects": [
+    "api.telegram.org"
+  ],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Notification Plugin 110(s) and 157 Schema(s) loaded in 0.0341s"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded Telegram URL: tgram://1...w/987654321/?image=False&detect=no&silent=no&preview=no&content=before&mdv=v1&format=html&overflow=upstream"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Telegram POST URL: https://api.telegram.org/bot123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/sendMessage (cert_verify=True)"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Telegram Payload: {'disable_notification': False, 'disable_web_page_preview': True, 'parse_mode': 'HTML', 'text': '<b>Octopus MinMax Results - Sun 27 Sep 23:00</b>\\r\\nline 001 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 002 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 003 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 004 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 005 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 006 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 007 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 008 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 009 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 010 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 011 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 012 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 013 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 014 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 015 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 016 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 017 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 018 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 019 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 020 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 021 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 022 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 023 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 024 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 025 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 026 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 027 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 028 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 029 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 030 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 031 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 032 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 033 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 034 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 035 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 036 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 037 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 038 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 039 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 040 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 041 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 042 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 043 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 044 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 045 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 046 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 047 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 048 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 049 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 050 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 051 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 052 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 053 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 054 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 055 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 056 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 057 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 058 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 059 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 060 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 061 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 062 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 063 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 064 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 065 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 066 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 067 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 068 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 069 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 070 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 071 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 072 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 073 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 074 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 075 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 076 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 077 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 078 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 079 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 080 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 081 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 082 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 083 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 084 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 085 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 086 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 087 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 088 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 089 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 090 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 091 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 092 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 093 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 094 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 095 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 096 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 097 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 098 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 099 abcdefghijabcdefghijabcdefghijabcdefghij\\r\\nline 100 abcdefghijabcdefghijabcdefghijabcdefghij', 'chat_id': 987654321}"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent Telegram notification."
+    }
+  ],
+  "new_files": [
+    "tgram_021.meta.json",
+    "tgram_021.request.txt",
+    "tgram_021.response.txt"
+  ],
+  "notify_exception": null,
+  "notify_return": true,
+  "notify_seconds": 0.0084,
+  "servers": [
+    {
+      "class": "NotifyTelegram",
+      "url": "tgram://123456789%3AAAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/987654321/?image=False&detect=no&silent=no&preview=no&content=before&mdv=v1&format=html&overflow=upstream"
+    }
+  ],
+  "title": "Octopus MinMax Results - Sun 27 Sep 23:00",
+  "urls": [
+    "tgram://123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/987654321"
+  ]
+}

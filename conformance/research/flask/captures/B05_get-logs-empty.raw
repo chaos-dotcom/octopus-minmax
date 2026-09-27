@@ -1,0 +1,60 @@
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.11.15
+Date: Sun, 27 Sep 2026 19:10:43 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 1589
+Connection: close
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octopus MinMax Bot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <nav class="bg-gray-800 border-b border-gray-700 px-6 py-4">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-2xl font-bold text-blue-400">🐙 Octopus MinMax Bot</h1>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        <!-- Flash messages -->
+        
+            
+        
+
+        
+<div class="max-w-6xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-bold text-gray-100">Bot Logs</h2>
+        <a href="." class="text-blue-400 hover:text-blue-300">← Back to Dashboard</a>
+    </div>
+
+    <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 overflow-hidden">
+        <div id="log-container" class="bg-black rounded p-4 overflow-y-auto" style="max-height: 70vh;">
+            <div class="text-sm font-mono text-gray-300">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Scroll to bottom on page load
+    window.addEventListener('load', function() {
+        const logContainer = document.getElementById('log-container');
+        logContainer.scrollTop = logContainer.scrollHeight;
+    });
+</script>
+
+    </main>
+</body>
+</html>

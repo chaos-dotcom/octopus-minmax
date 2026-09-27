@@ -1,0 +1,25 @@
+Allow header ordering is NOT stable across processes.
+werkzeug raises MethodNotAllowed(valid_methods=list(e.have_match_for)) and werkzeug's HTTPException
+joins them with ", ". `have_match_for` is a Python set of method-name strings, so the order is the
+set iteration order, which depends on CPython's per-process PYTHONHASHSEED.
+
+Same process, repeated requests -> stable. Different process -> different order.
+
+run A (pid 16854, port 5050):
+  OPTIONS /       : Allow: GET, HEAD, OPTIONS
+  OPTIONS /config : Allow: POST, GET, HEAD, OPTIONS
+  PUT     /config : Allow: POST, GET, HEAD, OPTIONS   (x3, stable)
+  PUT     /logs   : Allow: GET, HEAD, OPTIONS         (x3, stable)
+  PUT     /       : Allow: GET, HEAD, OPTIONS
+fresh process, port 5052:  PUT /config : Allow: HEAD, GET, POST, OPTIONS
+fresh process, port 5053:  PUT /config : Allow: POST, GET, OPTIONS, HEAD
+                           PUT /logs   : Allow: GET, OPTIONS, HEAD
+fresh process, port 5054:  PUT /config : Allow: GET, OPTIONS, HEAD, POST
+                           PUT /logs   : Allow: GET, OPTIONS, HEAD
+fresh process, port 5055:  OPTIONS /       : Allow: GET, OPTIONS, HEAD
+                           OPTIONS /config : Allow: GET, OPTIONS, HEAD, POST
+fresh process, port 5056:  OPTIONS /       : Allow: GET, HEAD, OPTIONS
+                           OPTIONS /config : Allow: GET, HEAD, OPTIONS, POST
+
+Conclusion: a byte-identical port cannot be stable here. Pick one order (the run-A order
+`GET, HEAD, OPTIONS` / `POST, GET, HEAD, OPTIONS`) and compare Allow as a SET in tests.

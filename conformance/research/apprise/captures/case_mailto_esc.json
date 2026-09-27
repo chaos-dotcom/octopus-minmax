@@ -1,0 +1,70 @@
+{
+  "add": [
+    [
+      "mailto://127.0.0.1:18830/octopus@example.com?from=bot@example.com&mode=insecure",
+      true
+    ]
+  ],
+  "body_chars": 98,
+  "case": "mailto_esc",
+  "connect_redirects": [],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Notification Plugin 110(s) and 157 Schema(s) loaded in 0.0338s"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded E-Mail URL: mailto://127.0.0.1:18830/octopus%40example.com?pgp=no&format=html&overflow=upstream&cto=15&from=bot%40example.com"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Connecting to remote SMTP server..."
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "SMTP Host: {smtp_host}"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Email From: bot@example.com"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Email To: octopus@example.com"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent Email to octopus@example.com"
+    }
+  ],
+  "new_files": [
+    "smtp_029.meta.json",
+    "smtp_029.smtp.txt"
+  ],
+  "notify_exception": null,
+  "notify_return": true,
+  "notify_seconds": 0.0117,
+  "servers": [
+    {
+      "class": "NotifyEmail",
+      "url": "mailto://127.0.0.1:18830/octopus%40example.com?pgp=no&format=html&overflow=upstream&cto=15&from=bot%40example.com"
+    }
+  ],
+  "title": "Octopus MinMax Results - Sun 27 Sep 23:00",
+  "urls": [
+    "mailto://127.0.0.1:18830/octopus@example.com?from=bot@example.com&mode=insecure"
+  ]
+}

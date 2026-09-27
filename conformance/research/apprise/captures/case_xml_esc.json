@@ -1,0 +1,61 @@
+{
+  "add": [
+    [
+      "xml://127.0.0.1:18803/notify",
+      true
+    ]
+  ],
+  "body_chars": 98,
+  "case": "xml_esc",
+  "connect_redirects": [],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Notification Plugin 110(s) and 157 Schema(s) loaded in 0.0340s"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded XML URL: xml://127.0.0.1:18803/notify?method=POST&format=text&overflow=upstream"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "XML POST URL: http://127.0.0.1:18803/notify (cert_verify=True)"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "XML Payload: <?xml version='1.0' encoding='utf-8'?>\n<soapenv:Envelope\n    xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n    xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soapenv:Body>\n        <Notification xmlns:xsi=\"https://raw.githubusercontent.com/caronc/apprise/master/apprise/assets/NotifyXML-1.1.xsd\">\n            <Version>1.1</Version><Subject>Octopus MinMax Results - Sun 27 Sep 23:00</Subject><Message>quote &quot; and backslash \\ then newline\ntab\there, unicode \u00a3 \u00e9 \ud83d\udc19, html &lt;b&gt;&amp;amp;&lt;/b&gt;\r\ntrailing space</Message><MessageType>info</MessageType>\n            \n       </Notification>\n    </soapenv:Body>\n</soapenv:Envelope>"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent XML POST notification."
+    }
+  ],
+  "new_files": [
+    "xml_009.meta.json",
+    "xml_009.request.txt",
+    "xml_009.response.txt"
+  ],
+  "notify_exception": null,
+  "notify_return": true,
+  "notify_seconds": 0.0043,
+  "servers": [
+    {
+      "class": "NotifyXML",
+      "url": "xml://127.0.0.1:18803/notify?method=POST&format=text&overflow=upstream"
+    }
+  ],
+  "title": "Octopus MinMax Results - Sun 27 Sep 23:00",
+  "urls": [
+    "xml://127.0.0.1:18803/notify"
+  ]
+}

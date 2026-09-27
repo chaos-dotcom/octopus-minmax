@@ -1,0 +1,14 @@
+{
+  "body_bytes": 580,
+  "captured_at": 1790536314.3572,
+  "chunked": false,
+  "head_lines": "POST /services/AAA111BBB1/BBB222CCC2/CCC333DDD3 HTTP/1.1",
+  "index": 16,
+  "label": "slack",
+  "listener_host_header_expected": null,
+  "local_port": 18811,
+  "peer": "127.0.0.1:56680",
+  "proto": "https",
+  "raw_len_without_body": 254,
+  "request_bytes": 834
+}

@@ -18,18 +18,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Update version in config.py
-      - name: Update version in config.py
+      # The bot version is compiled into the Rust binary (see src/config.rs and the
+      # Dockerfile's BOT_VERSION build argument), so it is passed to the image build
+      # instead of being patched into a source file.
+      - name: Resolve the version to build
         run: |
-          # Extract version from tag
-          VERSION="${{ github.event.release.tag_name }}"
-
-          # Update the BOT_VERSION in config.py (this change won't be committed)
-          sed -i 's/BOT_VERSION = "v\.local"/BOT_VERSION = "'"$VERSION"'"/' src/config.py
-
-          # Show the change for debugging
-          echo "Updated config.py with version $VERSION"
-          grep BOT_VERSION src/config.py
+          echo "BOT_VERSION=${{ github.event.release.tag_name }}" >> "$GITHUB_ENV"
 
       # Log in to the GitHub Container Registry (uses the built-in token,
       # so no Docker Hub account or secrets are needed)
@@ -50,6 +44,8 @@ jobs:
         with:
           context: .
           push: true
+          build-args: |
+            BOT_VERSION=${{ env.BOT_VERSION }}
           platforms: linux/amd64,linux/arm64
           tags: |
             ghcr.io/${{ github.repository_owner }}/octopus-minmax-bot:latest

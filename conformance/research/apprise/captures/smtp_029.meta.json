@@ -1,0 +1,10 @@
+{
+  "captured_at": 1790536370.349594,
+  "index": 29,
+  "label": "smtp",
+  "lines": 40,
+  "local_port": 18830,
+  "peer": "127.0.0.1:56916",
+  "proto": "smtp",
+  "transcript_bytes": 1576
+}

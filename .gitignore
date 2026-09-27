@@ -175,3 +175,7 @@ logs/
 
 # Local analysis scripts (contain my meter serial / MPAN identifiers)
 tools/
+# Rust build output and the conformance reference virtualenv
+rust/target/
+.venv-py/
+conformance/artifacts/

@@ -1,0 +1,63 @@
+{
+  "add": [
+    [
+      "pover://uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu@tttttttttttttttttttttttttttttt",
+      true
+    ]
+  ],
+  "body_chars": 11,
+  "case": "pover_short",
+  "connect_redirects": [
+    "api.pushover.net"
+  ],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Notification Plugin 110(s) and 157 Schema(s) loaded in 0.0339s"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded Pushover URL: pover://u...u@t...t//?priority=normal&format=text&overflow=upstream"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Pushover POST URL: https://api.pushover.net/1/messages.json (cert_verify=True)"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Pushover Payload: {'token': 'tttttttttttttttttttttttttttttt', 'user': 'uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu', 'priority': '0', 'title': 'Octopus MinMax Results - Sun 27 Sep 23:00', 'message': 'line1\\nline2', 'device': 'ALL_DEVICES', 'sound': 'pushover'}"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent Pushover notification to ALL_DEVICES."
+    }
+  ],
+  "new_files": [
+    "pover_025.meta.json",
+    "pover_025.request.txt",
+    "pover_025.response.txt"
+  ],
+  "notify_exception": null,
+  "notify_return": true,
+  "notify_seconds": 0.0076,
+  "servers": [
+    {
+      "class": "NotifyPushover",
+      "url": "pover://uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu@tttttttttttttttttttttttttttttt//?priority=normal&format=text&overflow=upstream"
+    }
+  ],
+  "title": "Octopus MinMax Results - Sun 27 Sep 23:00",
+  "urls": [
+    "pover://uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu@tttttttttttttttttttttttttttttt"
+  ]
+}

@@ -1,0 +1,70 @@
+### A10_get-logs-auth  -> 19 entries
+  [0] '2026-09-27 20:06:53 - octobot.bot_orchestrator - DEBUG - bot_orchestrator.__init__ - Initialising BotOrchestrator\n'
+  [1] '2026-09-27 20:06:53 - octobot.notification_service - WARNING - notification_service.send_notification - No notification services configured. Check config.NOTIFICATION_URLS.\n'
+  [2] '2026-09-27 20:06:53 - octobot.web_server - INFO - web_server.run_server - Web server starting on http://localhost:5050\n'
+  [3] '2026-09-27 20:06:53 - octobot.notification_service - INFO - notification_service.send_notification - [27/09/2026 20:06] Octobot v.local - ONE_OFF mode enabled \n Check port 5050 for dashboard.\n'
+  [4] '2026-09-27 20:06:53 - octobot.notification_service - WARNING - notification_service.send_notification - No notification services configured. Check config.NOTIFICATION_URLS.\n'
+  [5] '2026-09-27 20:06:53 - octobot.notification_service - INFO - notification_service.send_notification - [27/09/2026 20:06] Octobot v.local - Running one-off comparison\n'
+  [6] '2026-09-27 20:06:53 - octobot.bot_orchestrator - DEBUG - bot_orchestrator._initialize - bot_orchestrator\n'
+  [7] "2026-09-27 20:06:53 - octobot.bot_orchestrator - DEBUG - bot_orchestrator._load_tariffs_from_ids -  Requested tariff IDs - {'go', 'flexible', 'agile'}\n"
+  [8] '2026-09-27 20:06:53 - octobot.query_service - DEBUG - query_service.__init__ - Initialising QueryService\n'
+  [9] '2026-09-27 20:06:53 - octobot.query_service - DEBUG - query_service._get_token - Getting token\n'
+  [10] '2026-09-27 20:06:53 - octobot.query_service - ERROR - query_service._get_token - Failed to get token: ConnectionError - HTTPConnectionPool(host=\'127.0.0.1\', port=9): Max retries exceeded with url: /graphql/ (Caused by NewConnectionError("HTTPConnection(host=\'127.0.0.1\', port=9): Failed to establish a new connection: [Errno 61] Connection refused"))\n'
+  [11] '2026-09-27 20:06:53 - octobot.notification_service - WARNING - notification_service.send_notification - No notification services configured. Check config.NOTIFICATION_URLS.\n'
+  [12] '2026-09-27 20:06:53 - octobot.notification_service - INFO - notification_service.send_notification - ```py\nFailed to get token\n```\n'
+  [13] "2026-09-27 20:07:11 - octobot.web_server - INFO - web_server.config_page - Config update submitted: {'api_key': 'x', 'acc_number': 'A-00000000', 'base_url': 'http://127.0.0.1:9', 'execution_time': '23:00', 'switch_threshold': '2', 'tariffs': 'go,agile,flexible', 'notification_urls': '', 'batch_notifications': 'false'}\n"
+  [14] "2026-09-27 20:07:11 - octobot.web_server - INFO - web_server.config_page - Config updated successfully. New state: {'api_key': 'x', 'acc_number': 'A-00000000', 'base_url': 'http://127.0.0.1:9', 'execution_time': '23:00', 'switch_threshold': 2, 'tariffs': 'go,agile,flexible', 'one_off_run': False, 'one_off_executed': True, 'dry_run': False, 'notification_urls': '', 'batch_notifications': False}\n"
+  [15] "2026-09-27 20:07:53 - octobot.web_server - INFO - web_server.config_page - Config update submitted: {'api_key': 'x', 'acc_number': 'A-00000000', 'base_url': 'http://127.0.0.1:9', 'execution_time': '23:00', 'switch_threshold': '2', 'tariffs': 'go,agile,flexible', 'notification_urls': '', 'batch_notifications': 'false'}\n"
+  [16] "2026-09-27 20:07:53 - octobot.web_server - INFO - web_server.config_page - Config updated successfully. New state: {'api_key': 'x', 'acc_number': 'A-00000000', 'base_url': 'http://127.0.0.1:9', 'execution_time': '23:00', 'switch_threshold': 2, 'tariffs': 'go,agile,flexible', 'one_off_run': False, 'one_off_executed': True, 'dry_run': False, 'notification_urls': '', 'batch_notifications': False}\n"
+  [17] "2026-09-27 20:08:06 - octobot.web_server - INFO - web_server.config_page - Config update submitted: {'api_key': 'x', 'acc_number': 'A-00000000', 'base_url': 'http://127.0.0.1:9', 'execution_time': '23:00', 'switch_threshold': '2', 'tariffs': 'go,agile,flexible', 'notification_urls': '', 'batch_notifications': 'false'}\n"
+  [18] "2026-09-27 20:08:06 - octobot.web_server - INFO - web_server.config_page - Config updated successfully. New state: {'api_key': 'x', 'acc_number': 'A-00000000', 'base_url': 'http://127.0.0.1:9', 'execution_time': '23:00', 'switch_threshold': 2, 'tariffs': 'go,agile,flexible', 'one_off_run': False, 'one_off_executed': True, 'dry_run': False, 'notification_urls': '', 'batch_notifications': False}\n"
+
+### A17_post-logs-405  -> 0 entries
+
+### B03_get-logs-edgecase  -> 4 entries
+  [0] 'first line without any timestamp\n    indented continuation of the first line\n'
+  [1] '2024-01-02 03:04:05 - WARNING - first timestamped entry\nsecond line of that entry\nthird line, & < > " \' £ é\n\n'
+  [2] '2024-01-02 03:04:06 - ERROR - second timestamped entry\n'
+  [3] '2024-01-02 03:04:07 - INFO - third entry, no trailing newline at EOF'
+
+### B04_get-logs-crlf  -> 2 entries
+  [0] '2024-01-02 03:04:05 - X\ncontinued\n'
+  [1] '2024-01-02 03:04:06 - Y\n'
+
+### B05_get-logs-empty  -> 0 entries
+
+### B06_get-logs-missing  -> 1 entries
+  [0] 'Log file not found. The bot may not have started yet.'
+
+### B07_get-logs-badutf8  -> 1 entries
+  [0] "Error reading log file: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte"
+
+### B08_get-logs-single-untimestamped  -> 1 entries
+  [0] 'single untimestamped line, no newline'
+
+### B09_get-logs-regex-oddities  -> 2 entries
+  [0] '2024-13-99 99:99:99 - FAKE - matches the regex, not a real time\n 2024-01-02 03:04:05 - leading space, does not match\n'
+  [1] '2024-01-02 03:04:05\n'
+
+### B10_get-logs-long-line  -> 1 entries
+  [0] '2024-01-02 03:04:05 start\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n'
+
+### C08_get-logs-head  -> 0 entries
+
+### D01_get-logs-lonecr-and-odd-separators  -> 2 entries
+  [0] '2024-01-02 03:04:05 line A\nstill A (lone CR)\n'
+  [1] '2024-01-02 03:04:06 line B\ntail with VT \x0b FF \x0c NEL \x85 LS \u2028 kept\ntrailing\n'
+
+### D02_get-logs-bom  -> 1 entries
+  [0] '\ufeff2024-01-02 03:04:05 BOM at start of file\nnext line\n'
+
+### D03_get-logs-blank-crlf  -> 2 entries
+  [0] '2024-01-02 03:04:05 a\n\n'
+  [1] '2024-01-02 03:04:06 b'
+
+### G01_get-logs-isdir  -> 1 entries
+  [0] "Error reading log file: [Errno 21] Is a directory: 'logs/octobot.log'"
+
+### G02_get-logs-permission  -> 1 entries
+  [0] "Error reading log file: [Errno 13] Permission denied: 'logs/octobot.log'"
+

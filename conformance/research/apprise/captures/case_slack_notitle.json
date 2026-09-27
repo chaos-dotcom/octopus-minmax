@@ -1,0 +1,63 @@
+{
+  "add": [
+    [
+      "slack://AAA111BBB1/BBB222CCC2/CCC333DDD3/general",
+      true
+    ]
+  ],
+  "body_chars": 11,
+  "case": "slack_notitle",
+  "connect_redirects": [
+    "hooks.slack.com"
+  ],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Notification Plugin 110(s) and 157 Schema(s) loaded in 0.0352s"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded Slack URL: slack://A...1/B...2/C...3/general/?image=yes&footer=yes&blocks=no&format=markdown&overflow=upstream"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Slack POST URL: https://hooks.slack.com/services/AAA111BBB1/BBB222CCC2/CCC333DDD3 (cert_verify=True)"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Slack Payload: {'username': 'Apprise', 'mrkdwn': True, 'attachments': [{'title': '', 'text': 'line1\\nline2', 'color': '#3AA3E3', 'ts': 1790536734.343963, 'footer_icon': 'https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-info-72x72.png', 'footer': 'Apprise'}], 'icon_url': 'https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-info-72x72.png', 'channel': '#general'}"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent Slack notification to general."
+    }
+  ],
+  "new_files": [
+    "slack_001.meta.json",
+    "slack_001.request.txt",
+    "slack_001.response.txt"
+  ],
+  "notify_exception": null,
+  "notify_return": true,
+  "notify_seconds": 0.0081,
+  "servers": [
+    {
+      "class": "NotifySlack",
+      "url": "slack://AAA111BBB1/BBB222CCC2/CCC333DDD3/general/?image=yes&footer=yes&blocks=no&format=markdown&overflow=upstream"
+    }
+  ],
+  "title": "",
+  "urls": [
+    "slack://AAA111BBB1/BBB222CCC2/CCC333DDD3/general"
+  ]
+}

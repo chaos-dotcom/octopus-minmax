@@ -1,0 +1,14 @@
+{
+  "body_bytes": 601,
+  "captured_at": 1790536287.989001,
+  "chunked": false,
+  "head_lines": "POST /notify HTTP/1.1",
+  "index": 8,
+  "label": "xml",
+  "listener_host_header_expected": null,
+  "local_port": 18803,
+  "peer": "127.0.0.1:56613",
+  "proto": "http",
+  "raw_len_without_body": 190,
+  "request_bytes": 791
+}

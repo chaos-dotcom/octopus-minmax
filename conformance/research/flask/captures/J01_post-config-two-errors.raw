@@ -1,0 +1,15 @@
+HTTP/1.1 302 FOUND
+Server: Werkzeug/3.1.9 Python/3.11.15
+Date: Sun, 27 Sep 2026 19:12:54 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 199
+Location: config
+Vary: Cookie
+Set-Cookie: session=.eJxdzLEKwjAURuFX-bmTQoegOJhd6NLJUUpJ6y0JNAnc3KBQ-u7t5OB0pvOtNMyLK54L2ddK0CPEIlmooceXp6ohJ2iIjFiLYmSEhLa1XYc5S3SKkzHWGGjG5Wpv9zP1W_NPPT9BJw_1wsXn5f3DHFKNI8sx9dsOycsuSw.arlqtg.R3YC-I8bDYFjJr1xEKDA9Wmbzzc; HttpOnly; Path=/
+Connection: close
+
+<!doctype html>
+<html lang=en>
+<title>Redirecting...</title>
+<h1>Redirecting...</h1>
+<p>You should be redirected automatically to the target URL: <a href="config">config</a>. If not, click the link.

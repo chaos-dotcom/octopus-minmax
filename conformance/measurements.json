@@ -1,0 +1,129 @@
+{
+  "python": {
+    "size": {
+      "source_bytes": 160964,
+      "dependency_bytes": 21531653,
+      "total_bytes": 21692617,
+      "packages": [
+        {
+          "package": "aiohttp",
+          "bytes": 2689303
+        },
+        {
+          "package": "aiosignal",
+          "bytes": 4653
+        },
+        {
+          "package": "apprise",
+          "bytes": 5685626
+        },
+        {
+          "package": "attrs",
+          "bytes": 13646
+        },
+        {
+          "package": "blinker",
+          "bytes": 48471
+        },
+        {
+          "package": "certifi",
+          "bytes": 249746
+        },
+        {
+          "package": "charset_normalizer",
+          "bytes": 1282120
+        },
+        {
+          "package": "click",
+          "bytes": 989089
+        },
+        {
+          "package": "flask",
+          "bytes": 739921
+        },
+        {
+          "package": "frozenlist",
+          "bytes": 156084
+        },
+        {
+          "package": "gql",
+          "bytes": 622903
+        },
+        {
+          "package": "idna",
+          "bytes": 514697
+        },
+        {
+          "package": "itsdangerous",
+          "bytes": 95616
+        },
+        {
+          "package": "jinja2",
+          "bytes": 1207077
+        },
+        {
+          "package": "markdown",
+          "bytes": 761319
+        },
+        {
+          "package": "markupsafe",
+          "bytes": 95036
+        },
+        {
+          "package": "multidict",
+          "bytes": 294299
+        },
+        {
+          "package": "oauthlib",
+          "bytes": 1088002
+        },
+        {
+          "package": "requests",
+          "bytes": 418354
+        },
+        {
+          "package": "requests_oauthlib",
+          "bytes": 121274
+        },
+        {
+          "package": "tzdata",
+          "bytes": 517267
+        },
+        {
+          "package": "urllib3",
+          "bytes": 949964
+        },
+        {
+          "package": "werkzeug",
+          "bytes": 1764677
+        },
+        {
+          "package": "yaml",
+          "bytes": 877096
+        },
+        {
+          "package": "yarl",
+          "bytes": 345413
+        }
+      ]
+    },
+    "memory": {
+      "samples": 18,
+      "median_bytes": 51920896,
+      "peak_bytes": 51937280,
+      "min_bytes": 51920896
+    }
+  },
+  "rust": {
+    "size": {
+      "binary_bytes": 2870912,
+      "source_bytes": 210982
+    },
+    "memory": {
+      "samples": 18,
+      "median_bytes": 6832128,
+      "peak_bytes": 6832128,
+      "min_bytes": 6832128
+    }
+  }
+}

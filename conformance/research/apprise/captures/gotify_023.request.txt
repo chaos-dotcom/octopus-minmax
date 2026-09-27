@@ -1,0 +1,11 @@
+POST /message HTTP/1.1
+Host: 127.0.0.1:18804
+User-Agent: Apprise
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Content-Type: application/json
+X-Gotify-Key: gotifytoken
+Content-Length: 206
+
+{"priority": 5, "title": "Octopus MinMax Results - Sun 27 Sep 23:00", "message": "quote \" and backslash \\ then newline\ntab\there, unicode \u00a3 \u00e9 \ud83d\udc19, html <b>&amp;</b>\r\ntrailing space"}

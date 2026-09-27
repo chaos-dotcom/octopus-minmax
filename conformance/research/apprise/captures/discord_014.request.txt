@@ -1,0 +1,10 @@
+POST /api/webhooks/123456789012345678/AbCdEfGhIjKlMnOpQrStUvWxYz012345 HTTP/1.1
+Host: discord.com
+User-Agent: Apprise
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Content-Type: application/json; charset=utf-8
+Content-Length: 611
+
+{"tts": false, "wait": true, "avatar_url": "https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-info-256x256.png", "embeds": [{"author": {"name": "Apprise", "url": "https://github.com/caronc/apprise"}, "title": "Octopus MinMax Results - Sun 27 Sep 23:00", "description": "", "color": 3843043, "footer": {"text": "Apprise Notifications", "icon_url": "https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-logo.png"}, "fields": [{"name": "Section One", "value": "```md\nsome value\n```"}, {"name": "Section Two", "value": "```md\nline1\nline2\n```"}]}]}
