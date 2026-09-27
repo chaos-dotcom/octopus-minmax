@@ -3,9 +3,12 @@
 ## Implementation
 
 The bot is a single Rust binary (`rust/`), byte-compatible with the Python version it
-replaced.  The Python sources in `src/` are kept as the reference the conformance suite
-compares against; the Dockerfile, the release workflow and the Home Assistant add-on all
-build and ship the Rust binary.
+replaced.  The Dockerfile, the release workflow and the Home Assistant add-on all build
+and ship that binary.
+
+The Python implementation is no longer in the tree; it is the `v1.1.0` tag, and
+`conformance/fetch_reference.sh` checks it out under `reference/` when you want to re-run
+the byte-by-byte comparison against the port.
 
 ### Build and run
 
@@ -32,10 +35,15 @@ produces (requests on the wire, notifications, logs, stdout/stderr, web response
 and diffs the two runs:
 
 ```bash
-python3 conformance/run_all.py --impl py --out /tmp/art/py
-python3 conformance/run_all.py --impl rs --out /tmp/art/rs
+sh conformance/fetch_reference.sh                              # the v1.1.0 Python tree + its venv
+python3 conformance/run_all.py --impl py --out /tmp/art/py     # the reference
+python3 conformance/run_all.py --impl rs --out /tmp/art/rs     # this port
 python3 conformance/compare.py --reference /tmp/art/py --candidate /tmp/art/rs
 ```
+
+(The helper is only needed for the reference side.  It prefers a Python 3.9-3.13
+interpreter, because from 3.14 urllib3 advertises `zstd` in `Accept-Encoding`, which
+changes the reference's own headers.)
 
 `conformance/measure.py` reports deployment size and resident memory for both.
 
@@ -96,9 +104,11 @@ https://github.com/eelmafia/octopus-minmax
 
 
 ### Running Manually
-1. Install the Python requirements.
+1. Build the binary: `cargo build --release --manifest-path rust/Cargo.toml`.
 2. Configure the environment variables.
-3. Run `main.py`. I recommend scheduling it to run it at 11 PM in order to leave yourself an hour as a safety margin in case Octopus takes a while to generate your new agreement.
+3. Run `rust/target/release/octo-minmax` from the directory that should hold `logs/`.
+   I recommend scheduling it to run at 11 PM in order to leave yourself an hour as a
+   safety margin in case Octopus takes a while to generate your new agreement.
 
 ### Running using Docker
 Docker run command:

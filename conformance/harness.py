@@ -187,8 +187,18 @@ def run(impl, scenario_name, outdir):
     env.update(DEFAULT_ENV)
     env.update(scenario["env"])
     if impl == "py":
+        # The Python implementation was removed from the tree in v1.2.0; it lives in the
+        # v1.1.0 tag.  `conformance/fetch_reference.sh` checks it out under reference/.
+        reference = os.environ.get("OCTO_REFERENCE_DIR", os.path.join(REPO, "reference/python"))
+        interpreter = os.environ.get(
+            "OCTO_REFERENCE_PYTHON", os.path.join(reference, ".venv/bin/python"))
+        entry = os.path.join(reference, "src/main.py")
+        if not (os.path.exists(entry) and os.path.exists(interpreter)):
+            raise RuntimeError(
+                "the Python reference is not available; run conformance/fetch_reference.sh "
+                "(or set OCTO_REFERENCE_DIR and OCTO_REFERENCE_PYTHON)")
         env["PYTHONHASHSEED"] = "0"
-        cmd = [os.path.join(REPO, ".venv-py/bin/python"), "-u", os.path.join(REPO, "src/main.py")]
+        cmd = [interpreter, "-u", entry]
     else:
         cmd = [os.path.join(REPO, "rust/target/release/octo-minmax")]
 

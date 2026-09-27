@@ -1,9 +1,10 @@
 # Rust port: byte-level conformance, size and memory
 
 Development happened on the `rust` branch, now merged into `main` (v1.2.0).  The
-implementation is `rust/` (one binary crate, no runtime interpreter); the Python sources
-in `src/` are kept as the reference the conformance suite compares against, and
-`dockerfile` builds the Rust binary.
+implementation is `rust/` (one binary crate, no runtime interpreter) and `dockerfile`
+builds it.  The Python implementation was removed from the tree: it is the `v1.1.0` tag,
+and `conformance/fetch_reference.sh` checks it out under `reference/` to re-run the
+comparison.
 
 ## 1. What "byte identical" means here, and how it was checked
 
@@ -23,6 +24,7 @@ one produces:
 Reproduce it:
 
 ```bash
+sh conformance/fetch_reference.sh                             # the v1.1.0 Python tree
 python3 conformance/run_all.py --impl py --out /tmp/art/py     # reference
 python3 conformance/run_all.py --impl rs --out /tmp/art/rs     # port
 python3 conformance/compare.py --reference /tmp/art/py --candidate /tmp/art/rs
@@ -30,6 +32,13 @@ python3 conformance/compare.py --reference /tmp/art/py --candidate /tmp/art/rs
 
 `compare.py` reports every difference together with the normalizations it applied, so
 the claim is auditable rather than absolute.
+
+The recorded evidence was produced with the reference's own environment: Python 3.11.15,
+`requests` 2.32.3, urllib3 2.8.0, Werkzeug 3.1.9, Apprise 1.9.2.  That matters for one
+header: urllib3 advertises `zstd` in `Accept-Encoding` when the interpreter provides a
+`zstd` module (Python 3.14+), while the shipped image (`python:3.9-slim`) and the port
+send exactly `gzip, deflate`.  `fetch_reference.sh` therefore prefers a 3.9-3.13
+interpreter and warns otherwise.
 
 ### Result
 

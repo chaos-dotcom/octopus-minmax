@@ -1,8 +1,8 @@
 .git
 .github
-.venv-py
 rust/target
 conformance
+reference
 logs
 __pycache__
 *.pyc

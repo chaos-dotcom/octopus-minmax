@@ -179,3 +179,4 @@ tools/
 rust/target/
 .venv-py/
 conformance/artifacts/
+reference/
