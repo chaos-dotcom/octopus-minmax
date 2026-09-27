@@ -1,0 +1,61 @@
+{
+  "add": [
+    [
+      "form://127.0.0.1:18802/notify",
+      true
+    ]
+  ],
+  "body_chars": 98,
+  "case": "form_esc",
+  "connect_redirects": [],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Notification Plugin 110(s) and 157 Schema(s) loaded in 0.0339s"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded Form URL: form://127.0.0.1:18802/notify?method=POST&format=text&overflow=upstream"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Form POST URL: http://127.0.0.1:18802/notify (cert_verify=True)"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Form Payload: {'version': '1.0', 'title': 'Octopus MinMax Results - Sun 27 Sep 23:00', 'message': 'quote \" and backslash \\\\ then newline\\ntab\\there, unicode \u00a3 \u00e9 \ud83d\udc19, html <b>&amp;</b>\\r\\ntrailing space', 'type': 'info'}"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent Form POST notification."
+    }
+  ],
+  "new_files": [
+    "form_007.meta.json",
+    "form_007.request.txt",
+    "form_007.response.txt"
+  ],
+  "notify_exception": null,
+  "notify_return": true,
+  "notify_seconds": 0.0045,
+  "servers": [
+    {
+      "class": "NotifyForm",
+      "url": "form://127.0.0.1:18802/notify?method=POST&format=text&overflow=upstream"
+    }
+  ],
+  "title": "Octopus MinMax Results - Sun 27 Sep 23:00",
+  "urls": [
+    "form://127.0.0.1:18802/notify"
+  ]
+}

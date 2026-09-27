@@ -1,0 +1,43 @@
+<<< 220 capture.local ESMTP apprise-capture
+>>> ehlo 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+<<< 250-capture.local
+250-SIZE 10240000
+250-8BITMIME
+250 HELP
+>>> mail FROM:<bot@example.com> size=1036
+<<< 250 2.1.0 Ok
+>>> rcpt TO:<octopus@example.com>
+<<< 250 2.1.0 Ok
+>>> data
+<<< 354 End data with <CR><LF>.<CR><LF>
+>>> Content-Type: multipart/alternative; boundary="===============6558919895246698160=="
+>>> MIME-Version: 1.0
+>>> X-Application: Apprise
+>>> Subject: Octopus MinMax Results - Sun 27 Sep 23:00
+>>> From: bot@example.com
+>>> To: octopus@example.com
+>>> Message-ID: <179053637034.18987.4322416446257223193@127.0.0.1>
+>>> Date: Sun, 27 Sep 2026 19:12:50 +0000
+>>> 
+>>> --===============6558919895246698160==
+>>> Content-Type: text/plain; charset="utf-8"
+>>> MIME-Version: 1.0
+>>> Content-Transfer-Encoding: quoted-printable
+>>> 
+>>> quote " and backslash \ then newline
+>>> tab here, unicode =C2=A3 =C3=A9 =F0=9F=90=99, html <b>&amp;</b>=20
+>>> trailing space
+>>> --===============6558919895246698160==
+>>> Content-Type: text/html; charset="utf-8"
+>>> MIME-Version: 1.0
+>>> Content-Transfer-Encoding: quoted-printable
+>>> 
+>>> quote&nbsp;&quot;&nbsp;and&nbsp;backslash&nbsp;\&nbsp;then&nbsp;newline<br/=
+>>> >tab&emsp;here,&nbsp;unicode&nbsp;=C2=A3&nbsp;=C3=A9&nbsp;=F0=9F=90=99,&nbs=
+>>> p;html&nbsp;&lt;b&gt;&amp;amp;&lt;/b&gt;
+>>> <br/>trailing&nbsp;space&nbsp;&nbsp;<br/>
+>>> --===============6558919895246698160==--
+>>> .
+<<< 250 2.0.0 Ok: queued as CAPTURE
+>>> quit
+<<< 221 2.0.0 Bye

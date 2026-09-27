@@ -1,0 +1,10 @@
+POST /notify HTTP/1.1
+Host: 127.0.0.1:18802
+User-Agent: Apprise
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Content-Length: 93
+Content-Type: application/x-www-form-urlencoded
+
+version=1.0&title=Octopus+MinMax+Results+-+Sun+27+Sep+23%3A00&message=line1%0Aline2&type=info

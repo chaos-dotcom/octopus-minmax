@@ -1,0 +1,14 @@
+{
+  "body_bytes": 1252,
+  "captured_at": 1790536473.931332,
+  "chunked": false,
+  "head_lines": "POST /1/messages.json HTTP/1.1",
+  "index": 9,
+  "label": "pover",
+  "listener_host_header_expected": null,
+  "local_port": 18813,
+  "peer": "127.0.0.1:57097",
+  "proto": "https",
+  "raw_len_without_body": 286,
+  "request_bytes": 1538
+}

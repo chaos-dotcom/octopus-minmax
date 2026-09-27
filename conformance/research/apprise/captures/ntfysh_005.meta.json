@@ -1,0 +1,14 @@
+{
+  "body_bytes": 99,
+  "captured_at": 1790536747.543859,
+  "chunked": false,
+  "head_lines": "POST / HTTP/1.1",
+  "index": 5,
+  "label": "ntfysh",
+  "listener_host_header_expected": null,
+  "local_port": 18814,
+  "peer": "127.0.0.1:57337",
+  "proto": "https",
+  "raw_len_without_body": 285,
+  "request_bytes": 384
+}

@@ -1,0 +1,63 @@
+{
+  "add": [
+    [
+      "discord://123456789012345678/AbCdEfGhIjKlMnOpQrStUvWxYz012345?format=markdown&fields=yes&footer=yes",
+      true
+    ]
+  ],
+  "body_chars": 50,
+  "case": "discord_md",
+  "connect_redirects": [
+    "discord.com"
+  ],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Notification Plugin 110(s) and 157 Schema(s) loaded in 0.0364s"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded Discord URL: discord://1...8/A...5/?tts=no&avatar=yes&footer=yes&footer_logo=yes&image=no&fields=yes&format=markdown&overflow=upstream"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Discord POST URL: https://discord.com/api/webhooks/123456789012345678/AbCdEfGhIjKlMnOpQrStUvWxYz012345 (cert_verify=True)"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Discord Payload: {'tts': False, 'wait': True, 'avatar_url': 'https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-info-256x256.png', 'embeds': [{'author': {'name': 'Apprise', 'url': 'https://github.com/caronc/apprise'}, 'title': 'Octopus MinMax Results - Sun 27 Sep 23:00', 'description': '', 'color': 3843043, 'footer': {'text': 'Apprise Notifications', 'icon_url': 'https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-logo.png'}, 'fields': [{'name': 'Section One', 'value': '```md\\nsome value\\n```'}, {'name': 'Section Two', 'value': '```md\\nline1\\nline2\\n```'}]}]}"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent Discord notification."
+    }
+  ],
+  "new_files": [
+    "discord_014.meta.json",
+    "discord_014.request.txt",
+    "discord_014.response.txt"
+  ],
+  "notify_exception": null,
+  "notify_return": true,
+  "notify_seconds": 0.008,
+  "servers": [
+    {
+      "class": "NotifyDiscord",
+      "url": "discord://123456789012345678/AbCdEfGhIjKlMnOpQrStUvWxYz012345/?tts=no&avatar=yes&footer=yes&footer_logo=yes&image=no&fields=yes&format=markdown&overflow=upstream"
+    }
+  ],
+  "title": "Octopus MinMax Results - Sun 27 Sep 23:00",
+  "urls": [
+    "discord://123456789012345678/AbCdEfGhIjKlMnOpQrStUvWxYz012345?format=markdown&fields=yes&footer=yes"
+  ]
+}

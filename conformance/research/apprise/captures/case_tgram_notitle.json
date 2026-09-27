@@ -1,0 +1,63 @@
+{
+  "add": [
+    [
+      "tgram://123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/987654321",
+      true
+    ]
+  ],
+  "body_chars": 11,
+  "case": "tgram_notitle",
+  "connect_redirects": [
+    "api.telegram.org"
+  ],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Notification Plugin 110(s) and 157 Schema(s) loaded in 0.0353s"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded Telegram URL: tgram://1...w/987654321/?image=False&detect=no&silent=no&preview=no&content=before&mdv=v1&format=html&overflow=upstream"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Telegram POST URL: https://api.telegram.org/bot123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/sendMessage (cert_verify=True)"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Telegram Payload: {'disable_notification': False, 'disable_web_page_preview': True, 'parse_mode': 'HTML', 'text': 'line1\\r\\nline2', 'chat_id': 987654321}"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent Telegram notification."
+    }
+  ],
+  "new_files": [
+    "tgram_019.meta.json",
+    "tgram_019.request.txt",
+    "tgram_019.response.txt"
+  ],
+  "notify_exception": null,
+  "notify_return": true,
+  "notify_seconds": 0.0078,
+  "servers": [
+    {
+      "class": "NotifyTelegram",
+      "url": "tgram://123456789%3AAAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/987654321/?image=False&detect=no&silent=no&preview=no&content=before&mdv=v1&format=html&overflow=upstream"
+    }
+  ],
+  "title": "",
+  "urls": [
+    "tgram://123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/987654321"
+  ]
+}

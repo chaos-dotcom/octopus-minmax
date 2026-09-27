@@ -1,0 +1,63 @@
+{
+  "add": [
+    [
+      "slack://AAA111BBB1/BBB222CCC2/CCC333DDD3/general",
+      true
+    ]
+  ],
+  "body_chars": 4999,
+  "case": "slack_long",
+  "connect_redirects": [
+    "hooks.slack.com"
+  ],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Notification Plugin 110(s) and 157 Schema(s) loaded in 0.0349s"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded Slack URL: slack://A...1/B...2/C...3/general/?image=yes&footer=yes&blocks=no&format=markdown&overflow=upstream"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Slack POST URL: https://hooks.slack.com/services/AAA111BBB1/BBB222CCC2/CCC333DDD3 (cert_verify=True)"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Slack Payload: {'username': 'Apprise', 'mrkdwn': True, 'attachments': [{'title': 'Octopus MinMax Results - Sun 27 Sep 23:00', 'text': 'line 001 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 002 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 003 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 004 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 005 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 006 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 007 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 008 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 009 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 010 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 011 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 012 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 013 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 014 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 015 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 016 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 017 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 018 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 019 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 020 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 021 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 022 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 023 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 024 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 025 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 026 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 027 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 028 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 029 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 030 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 031 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 032 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 033 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 034 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 035 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 036 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 037 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 038 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 039 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 040 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 041 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 042 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 043 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 044 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 045 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 046 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 047 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 048 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 049 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 050 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 051 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 052 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 053 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 054 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 055 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 056 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 057 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 058 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 059 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 060 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 061 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 062 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 063 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 064 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 065 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 066 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 067 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 068 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 069 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 070 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 071 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 072 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 073 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 074 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 075 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 076 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 077 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 078 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 079 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 080 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 081 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 082 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 083 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 084 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 085 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 086 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 087 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 088 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 089 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 090 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 091 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 092 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 093 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 094 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 095 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 096 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 097 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 098 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 099 abcdefghijabcdefghijabcdefghijabcdefghij\\nline 100 abcdefghijabcdefghijabcdefghijabcdefghij', 'color': '#3AA3E3', 'ts': 1790536317.6141162, 'footer_icon': 'https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-info-72x72.png', 'footer': 'Apprise'}], 'icon_url': 'https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-info-72x72.png', 'channel': '#general'}"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent Slack notification to general."
+    }
+  ],
+  "new_files": [
+    "slack_017.meta.json",
+    "slack_017.request.txt",
+    "slack_017.response.txt"
+  ],
+  "notify_exception": null,
+  "notify_return": true,
+  "notify_seconds": 0.0079,
+  "servers": [
+    {
+      "class": "NotifySlack",
+      "url": "slack://AAA111BBB1/BBB222CCC2/CCC333DDD3/general/?image=yes&footer=yes&blocks=no&format=markdown&overflow=upstream"
+    }
+  ],
+  "title": "Octopus MinMax Results - Sun 27 Sep 23:00",
+  "urls": [
+    "slack://AAA111BBB1/BBB222CCC2/CCC333DDD3/general"
+  ]
+}

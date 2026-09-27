@@ -1,0 +1,14 @@
+{
+  "body_bytes": 0,
+  "captured_at": 1790536525.47035,
+  "chunked": false,
+  "head_lines": "GET /notify?version=1.0&title=Octopus+MinMax+Results+-+Sun+27+Sep+23%3A00&message=line1%0Aline2&type=info&q=1 HTTP/1.1",
+  "index": 23,
+  "label": "form",
+  "listener_host_header_expected": null,
+  "local_port": 18802,
+  "peer": "127.0.0.1:57202",
+  "proto": "http",
+  "raw_len_without_body": 235,
+  "request_bytes": 235
+}

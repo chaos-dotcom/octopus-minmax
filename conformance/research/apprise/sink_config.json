@@ -1,0 +1,155 @@
+{
+  "listeners": [
+    {
+      "label": "json",
+      "proto": "http",
+      "port": 18801,
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"ok\":true}"
+      }
+    },
+    {
+      "label": "form",
+      "proto": "http",
+      "port": 18802,
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"ok\":true}"
+      }
+    },
+    {
+      "label": "xml",
+      "proto": "http",
+      "port": 18803,
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"ok\":true}"
+      }
+    },
+    {
+      "label": "gotify",
+      "proto": "http",
+      "port": 18804,
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"id\":1}"
+      }
+    },
+    {
+      "label": "ntfy",
+      "proto": "http",
+      "port": 18805,
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"id\":\"cap\",\"time\":1}"
+      }
+    },
+    {
+      "label": "ntfysh_http",
+      "proto": "http",
+      "port": 18815,
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"id\":\"cap\",\"time\":1}"
+      }
+    },
+    {
+      "label": "https_local",
+      "proto": "https",
+      "port": 18806,
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"ok\":true}"
+      }
+    },
+    {
+      "label": "discord",
+      "proto": "https",
+      "port": 18810,
+      "response": {
+        "status": 204,
+        "reason": "No Content",
+        "headers": {
+          "X-RateLimit-Remaining": "10",
+          "X-RateLimit-Reset": "0"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "slack",
+      "proto": "https",
+      "port": 18811,
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "text/html"
+        },
+        "body": "ok"
+      }
+    },
+    {
+      "label": "tgram",
+      "proto": "https",
+      "port": 18812,
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"ok\":true,\"result\":{\"message_id\":1}}"
+      }
+    },
+    {
+      "label": "pover",
+      "proto": "https",
+      "port": 18813,
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"status\":1,\"request\":\"cap\"}"
+      }
+    },
+    {
+      "label": "ntfysh",
+      "proto": "https",
+      "port": 18814,
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"id\":\"cap\",\"time\":1}"
+      }
+    },
+    {
+      "label": "smtp",
+      "proto": "smtp",
+      "port": 18830
+    }
+  ]
+}

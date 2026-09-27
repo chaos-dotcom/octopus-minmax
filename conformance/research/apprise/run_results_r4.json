@@ -1,0 +1,37 @@
+[
+ {
+  "case": "slack_notitle",
+  "rc": 0,
+  "stdout": "RESULT {\"add\": [[\"slack://AAA111BBB1/BBB222CCC2/CCC333DDD3/general\", true]], \"case\": \"slack_notitle\", \"exception\": null, \"log_tail\": [{\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"Loaded Slack URL: slack://A...1/B...2/C...3/general/?image=yes&footer=yes&blocks=no&format=markdown&overflow=upstream\"}, {\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"Slack POST URL: https://hooks.slack.com/services/AAA111BBB1/BBB222CCC2/CCC333DDD3 (cert_verify=True)\"}, {\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"Slack Payload: {'username': 'Apprise', 'mrkdwn': True, 'attachments': [{'title': '', 'text': 'line1\\\\nline2', 'color': '#3AA3E3', 'ts': 1790536734.343963, 'footer_icon': 'https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-info-72x72.png', 'footer': 'Apprise'}], 'icon_url': 'https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-info-72x72.png', 'channel': '#general'}\"}, {\"level\": \"INFO\", \"logger\": \"apprise\", \"msg\": \"Sent Slack notification to general.\"}], \"new_files\": [\"slack_001.meta.json\", \"slack_001.request.txt\", \"slack_001.response.txt\"], \"notify_return\": true}\n",
+  "stderr": "",
+  "out": "/Users/chaos/octopus-minmax/conformance/research/apprise/captures/case_slack_notitle.json"
+ },
+ {
+  "case": "pover_notitle",
+  "rc": 0,
+  "stdout": "RESULT {\"add\": [[\"pover://uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu@tttttttttttttttttttttttttttttt\", true]], \"case\": \"pover_notitle\", \"exception\": null, \"log_tail\": [{\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"Loaded Pushover URL: pover://u...u@t...t//?priority=normal&format=text&overflow=upstream\"}, {\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"Pushover POST URL: https://api.pushover.net/1/messages.json (cert_verify=True)\"}, {\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"Pushover Payload: {'token': 'tttttttttttttttttttttttttttttt', 'user': 'uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu', 'priority': '0', 'title': 'Apprise Notifications', 'message': 'line1\\\\nline2', 'device': 'ALL_DEVICES', 'sound': 'pushover'}\"}, {\"level\": \"INFO\", \"logger\": \"apprise\", \"msg\": \"Sent Pushover notification to ALL_DEVICES.\"}], \"new_files\": [\"pover_002.meta.json\", \"pover_002.request.txt\", \"pover_002.response.txt\"], \"notify_return\": true}\n",
+  "stderr": "",
+  "out": "/Users/chaos/octopus-minmax/conformance/research/apprise/captures/case_pover_notitle.json"
+ },
+ {
+  "case": "gotify_notitle",
+  "rc": 0,
+  "stdout": "RESULT {\"add\": [[\"gotify://127.0.0.1:18804/gotifytoken\", true]], \"case\": \"gotify_notitle\", \"exception\": null, \"log_tail\": [{\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"Loaded Gotify URL: gotify://127.0.0.1:18804/g...n/?priority=normal&format=text&overflow=upstream\"}, {\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"Gotify POST URL: http://127.0.0.1:18804/message (cert_verify=True)\"}, {\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"Gotify Payload: {'priority': 5, 'title': '', 'message': 'line1\\\\nline2'}\"}, {\"level\": \"INFO\", \"logger\": \"apprise\", \"msg\": \"Sent Gotify notification.\"}], \"new_files\": [\"gotify_003.meta.json\", \"gotify_003.request.txt\", \"gotify_003.response.txt\"], \"notify_return\": true}\n",
+  "stderr": "",
+  "out": "/Users/chaos/octopus-minmax/conformance/research/apprise/captures/case_gotify_notitle.json"
+ },
+ {
+  "case": "tgram_notitle2",
+  "rc": 0,
+  "stdout": "RESULT {\"add\": [[\"tgram://123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/987654321\", true]], \"case\": \"tgram_notitle2\", \"exception\": null, \"log_tail\": [{\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"Loaded Telegram URL: tgram://1...w/987654321/?image=False&detect=no&silent=no&preview=no&content=before&mdv=v1&format=html&overflow=upstream\"}, {\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"Telegram POST URL: https://api.telegram.org/bot123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/sendMessage (cert_verify=True)\"}, {\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"Telegram Payload: {'disable_notification': False, 'disable_web_page_preview': True, 'parse_mode': 'HTML', 'text': 'line1\\\\r\\\\nline2', 'chat_id': 987654321}\"}, {\"level\": \"INFO\", \"logger\": \"apprise\", \"msg\": \"Sent Telegram notification.\"}], \"new_files\": [\"tgram_004.meta.json\", \"tgram_004.request.txt\", \"tgram_004.response.txt\"], \"notify_return\": true}\n",
+  "stderr": "",
+  "out": "/Users/chaos/octopus-minmax/conformance/research/apprise/captures/case_tgram_notitle2.json"
+ },
+ {
+  "case": "ntfy_cloud_mode2",
+  "rc": 0,
+  "stdout": "RESULT {\"add\": [[\"ntfy://ntfy.sh/topic?mode=cloud\", true]], \"case\": \"ntfy_cloud_mode2\", \"exception\": null, \"log_tail\": [{\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"ntfy POST URL: https://ntfy.sh (cert_verify=True)\"}, {\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"ntfy Payload: {'topic': 'topic', 'title': 'Octopus MinMax Results - Sun 27 Sep 23:00', 'message': 'line1\\\\nline2'}\"}, {\"level\": \"DEBUG\", \"logger\": \"apprise\", \"msg\": \"ntfy Headers: {'User-Agent': 'Apprise', 'Content-Type': 'application/json', 'X-Icon': 'https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-info-256x256.png'}\"}, {\"level\": \"INFO\", \"logger\": \"apprise\", \"msg\": \"Sent ntfy notification to 'https://ntfy.sh'.\"}], \"new_files\": [\"ntfysh_005.meta.json\", \"ntfysh_005.request.txt\", \"ntfysh_005.response.txt\"], \"notify_return\": true}\n",
+  "stderr": "",
+  "out": "/Users/chaos/octopus-minmax/conformance/research/apprise/captures/case_ntfy_cloud_mode2.json"
+ }
+]

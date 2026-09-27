@@ -1,0 +1,61 @@
+{
+  "add": [
+    [
+      "json://127.0.0.1:18801/notify?method=GET&-q=1",
+      true
+    ]
+  ],
+  "body_chars": 11,
+  "case": "json_get",
+  "connect_redirects": [],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Notification Plugin 110(s) and 157 Schema(s) loaded in 0.0340s"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded JSON URL: json://127.0.0.1:18801/notify?method=GET&format=text&overflow=upstream&-q=1"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "JSON POST URL: http://127.0.0.1:18801/notify (cert_verify=True)"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "JSON Payload: {'version': '1.0', 'title': 'Octopus MinMax Results - Sun 27 Sep 23:00', 'message': 'line1\\nline2', 'attachments': [], 'type': 'info'}"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent JSON GET notification."
+    }
+  ],
+  "new_files": [
+    "json_016.meta.json",
+    "json_016.request.txt",
+    "json_016.response.txt"
+  ],
+  "notify_exception": null,
+  "notify_return": true,
+  "notify_seconds": 0.0043,
+  "servers": [
+    {
+      "class": "NotifyJSON",
+      "url": "json://127.0.0.1:18801/notify?method=GET&format=text&overflow=upstream&-q=1"
+    }
+  ],
+  "title": "Octopus MinMax Results - Sun 27 Sep 23:00",
+  "urls": [
+    "json://127.0.0.1:18801/notify?method=GET&-q=1"
+  ]
+}

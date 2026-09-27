@@ -1,0 +1,14 @@
+{
+  "body_bytes": 2197,
+  "captured_at": 1790536460.745672,
+  "chunked": false,
+  "head_lines": "POST /api/webhooks/123456789012345678/AbCdEfGhIjKlMnOpQrStUvWxYz012345 HTTP/1.1",
+  "index": 3,
+  "label": "discord",
+  "listener_host_header_expected": null,
+  "local_port": 18810,
+  "peer": "127.0.0.1:57045",
+  "proto": "https",
+  "raw_len_without_body": 261,
+  "request_bytes": 2458
+}

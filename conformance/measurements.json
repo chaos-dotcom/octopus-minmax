@@ -1,0 +1,225 @@
+{
+  "python": {
+    "size": {
+      "source_bytes": 160964,
+      "dependency_bytes": 21531653,
+      "total_bytes": 21692617,
+      "packages": [
+        {
+          "package": "aiohttp",
+          "bytes": 2689303
+        },
+        {
+          "package": "aiosignal",
+          "bytes": 4653
+        },
+        {
+          "package": "apprise",
+          "bytes": 5685626
+        },
+        {
+          "package": "attrs",
+          "bytes": 13646
+        },
+        {
+          "package": "blinker",
+          "bytes": 48471
+        },
+        {
+          "package": "certifi",
+          "bytes": 249746
+        },
+        {
+          "package": "charset_normalizer",
+          "bytes": 1282120
+        },
+        {
+          "package": "click",
+          "bytes": 989089
+        },
+        {
+          "package": "flask",
+          "bytes": 739921
+        },
+        {
+          "package": "frozenlist",
+          "bytes": 156084
+        },
+        {
+          "package": "gql",
+          "bytes": 622903
+        },
+        {
+          "package": "idna",
+          "bytes": 514697
+        },
+        {
+          "package": "itsdangerous",
+          "bytes": 95616
+        },
+        {
+          "package": "jinja2",
+          "bytes": 1207077
+        },
+        {
+          "package": "markdown",
+          "bytes": 761319
+        },
+        {
+          "package": "markupsafe",
+          "bytes": 95036
+        },
+        {
+          "package": "multidict",
+          "bytes": 294299
+        },
+        {
+          "package": "oauthlib",
+          "bytes": 1088002
+        },
+        {
+          "package": "requests",
+          "bytes": 418354
+        },
+        {
+          "package": "requests_oauthlib",
+          "bytes": 121274
+        },
+        {
+          "package": "tzdata",
+          "bytes": 517267
+        },
+        {
+          "package": "urllib3",
+          "bytes": 949964
+        },
+        {
+          "package": "werkzeug",
+          "bytes": 1764677
+        },
+        {
+          "package": "yaml",
+          "bytes": 877096
+        },
+        {
+          "package": "yarl",
+          "bytes": 345413
+        }
+      ]
+    },
+    "memory": {
+      "samples": 18,
+      "median_bytes": 52068352,
+      "peak_bytes": 52084736,
+      "min_bytes": 52068352
+    },
+    "cpu": {
+      "startup": {
+        "cpu_seconds": 0.0961,
+        "samples": [
+          0.11,
+          0.0961,
+          0.0933
+        ]
+      },
+      "idle": {
+        "window_s": 6,
+        "cpu_seconds": 0.0,
+        "cpu_percent": 0.0
+      },
+      "dashboard": {
+        "requests": 1000,
+        "wall_seconds": 11.485,
+        "cpu_seconds": 0.5395,
+        "microseconds_cpu_per_request": 443.4,
+        "requests_per_second": 87.1,
+        "repeats": [
+          {
+            "wall_seconds": 11.768,
+            "cpu_seconds": 0.7696,
+            "microseconds_cpu_per_request": 673.5,
+            "requests_per_second": 85.0
+          },
+          {
+            "wall_seconds": 11.485,
+            "cpu_seconds": 0.5395,
+            "microseconds_cpu_per_request": 443.4,
+            "requests_per_second": 87.1
+          },
+          {
+            "wall_seconds": 11.301,
+            "cpu_seconds": 0.3565,
+            "microseconds_cpu_per_request": 260.4,
+            "requests_per_second": 88.5
+          }
+        ]
+      },
+      "one_off_run": {
+        "cpu_seconds": 0.1559,
+        "wall_seconds": 11.189,
+        "notifications": 5,
+        "requests": 14
+      }
+    }
+  },
+  "rust": {
+    "size": {
+      "binary_bytes": 2870912,
+      "source_bytes": 210982
+    },
+    "memory": {
+      "samples": 18,
+      "median_bytes": 6881280,
+      "peak_bytes": 6881280,
+      "min_bytes": 6881280
+    },
+    "cpu": {
+      "startup": {
+        "cpu_seconds": 0.0037,
+        "samples": [
+          0.0037,
+          0.0036,
+          0.0037
+        ]
+      },
+      "idle": {
+        "window_s": 6,
+        "cpu_seconds": 0.0,
+        "cpu_percent": 0.0
+      },
+      "dashboard": {
+        "requests": 1000,
+        "wall_seconds": 0.085,
+        "cpu_seconds": 0.0508,
+        "microseconds_cpu_per_request": 47.1,
+        "requests_per_second": 11785.2,
+        "repeats": [
+          {
+            "wall_seconds": 0.085,
+            "cpu_seconds": 0.05,
+            "microseconds_cpu_per_request": 46.3,
+            "requests_per_second": 11785.2
+          },
+          {
+            "wall_seconds": 0.091,
+            "cpu_seconds": 0.0508,
+            "microseconds_cpu_per_request": 47.1,
+            "requests_per_second": 11045.7
+          },
+          {
+            "wall_seconds": 0.081,
+            "cpu_seconds": 0.0508,
+            "microseconds_cpu_per_request": 47.1,
+            "requests_per_second": 12331.4
+          }
+        ]
+      },
+      "one_off_run": {
+        "cpu_seconds": 0.0064,
+        "wall_seconds": 6.05,
+        "notifications": 5,
+        "requests": 14
+      }
+    }
+  }
+}

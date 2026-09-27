@@ -1,0 +1,68 @@
+{
+  "add": [
+    [
+      "ntfy://ntfy.sh/topic?mode=cloud",
+      true
+    ]
+  ],
+  "body_chars": 98,
+  "case": "ntfy_cloud_esc",
+  "connect_redirects": [
+    "ntfy.sh"
+  ],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Notification Plugin 110(s) and 157 Schema(s) loaded in 0.0351s"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded ntfy URL: ntfys://topic?priority=default&mode=cloud&image=yes&auth=basic&format=text&overflow=upstream"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "ntfy POST URL: https://ntfy.sh (cert_verify=True)"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "ntfy Payload: {'topic': 'topic', 'title': 'Octopus MinMax Results - Sun 27 Sep 23:00', 'message': 'quote \" and backslash \\\\ then newline\\ntab\\there, unicode \u00a3 \u00e9 \ud83d\udc19, html <b>&amp;</b>\\r\\ntrailing space'}"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "ntfy Headers: {'User-Agent': 'Apprise', 'Content-Type': 'application/json', 'X-Icon': 'https://github.com/caronc/apprise/raw/master/apprise/assets/themes/default/apprise-info-256x256.png'}"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent ntfy notification to 'https://ntfy.sh'."
+    }
+  ],
+  "new_files": [
+    "ntfysh_003.meta.json",
+    "ntfysh_003.request.txt",
+    "ntfysh_003.response.txt"
+  ],
+  "notify_exception": null,
+  "notify_return": true,
+  "notify_seconds": 0.0076,
+  "servers": [
+    {
+      "class": "NotifyNtfy",
+      "url": "ntfys://topic?priority=default&mode=cloud&image=yes&auth=basic&format=text&overflow=upstream"
+    }
+  ],
+  "title": "Octopus MinMax Results - Sun 27 Sep 23:00",
+  "urls": [
+    "ntfy://ntfy.sh/topic?mode=cloud"
+  ]
+}

@@ -1,0 +1,20 @@
+HTTP/1.1 414 Request-URI Too Long
+Server: Werkzeug/3.1.9 Python/3.11.15
+Date: Sun, 27 Sep 2026 19:11:52 GMT
+Connection: close
+Content-Type: text/html;charset=utf-8
+Content-Length: 327
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Error response</title>
+    </head>
+    <body>
+        <h1>Error response</h1>
+        <p>Error code: 414</p>
+        <p>Message: Request-URI Too Long.</p>
+        <p>Error code explanation: 414 - URI is too long.</p>
+    </body>
+</html>

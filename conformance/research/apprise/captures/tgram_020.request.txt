@@ -1,0 +1,10 @@
+POST /bot123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/sendMessage HTTP/1.1
+Host: api.telegram.org
+User-Agent: Apprise
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Content-Type: application/json
+Content-Length: 320
+
+{"disable_notification": false, "disable_web_page_preview": true, "parse_mode": "HTML", "text": "<b>Octopus MinMax Results - Sun 27 Sep 23:00</b>\r\nquote \" and backslash \\ then newline\r\ntab   here, unicode \u00a3 \u00e9 \ud83d\udc19, html &lt;b&gt;&amp;amp;&lt;/b&gt;\r\ntrailing space  \r\n", "chat_id": 987654321}

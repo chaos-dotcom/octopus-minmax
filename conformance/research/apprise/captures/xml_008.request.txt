@@ -1,0 +1,22 @@
+POST /notify HTTP/1.1
+Host: 127.0.0.1:18803
+User-Agent: Apprise
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Content-Type: application/xml
+Content-Length: 601
+
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Body>
+        <Notification xmlns:xsi="https://raw.githubusercontent.com/caronc/apprise/master/apprise/assets/NotifyXML-1.1.xsd">
+            <Version>1.1</Version><Subject>Octopus MinMax Results - Sun 27 Sep 23:00</Subject><Message>line1
+line2</Message><MessageType>info</MessageType>
+            
+       </Notification>
+    </soapenv:Body>
+</soapenv:Envelope>

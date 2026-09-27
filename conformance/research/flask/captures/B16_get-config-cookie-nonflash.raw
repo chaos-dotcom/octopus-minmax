@@ -1,0 +1,148 @@
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.11.15
+Date: Sun, 27 Sep 2026 19:10:43 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 6835
+Connection: close
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octopus MinMax Bot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <nav class="bg-gray-800 border-b border-gray-700 px-6 py-4">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-2xl font-bold text-blue-400">🐙 Octopus MinMax Bot</h1>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        <!-- Flash messages -->
+        
+            
+        
+
+        
+<div class="max-w-4xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-bold text-gray-100">Configuration</h2>
+        <a href="." class="text-blue-400 hover:text-blue-300">← Back to Dashboard</a>
+    </div>
+
+    <div class="bg-yellow-900 border border-yellow-700 text-yellow-100 rounded-lg p-4 mb-6">
+        ⚠️ <strong>Note:</strong> Config changes apply immediately but reset on container restart. Update docker-compose.yaml for permanent changes.
+    </div>
+
+    <form method="POST" class="space-y-6">
+        <!-- API Settings -->
+        <div class="bg-gray-800 border border-gray-700 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-100 mb-4">API Settings</h3>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-gray-300 mb-2" for="api_key">API Key</label>
+                    <input type="text" id="api_key" name="api_key" value="first"
+                           class="w-full bg-gray-900 border border-gray-600 text-gray-100 rounded px-4 py-2 focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-gray-300 mb-2" for="acc_number">Account Number</label>
+                    <input type="text" id="acc_number" name="acc_number" value="A-00000000"
+                           class="w-full bg-gray-900 border border-gray-600 text-gray-100 rounded px-4 py-2 focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-gray-300 mb-2" for="base_url">Base URL</label>
+                    <input type="text" id="base_url" name="base_url" value="http://127.0.0.1:9/x?y=1&amp;z=&lt;2&gt;"
+                           class="w-full bg-gray-900 border border-gray-600 text-gray-100 rounded px-4 py-2 focus:outline-none focus:border-blue-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Execution Settings -->
+        <div class="bg-gray-800 border border-gray-700 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-100 mb-4">Execution Settings</h3>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-gray-300 mb-2" for="execution_time">Execution Time (HH:MM)</label>
+                    <input type="text" id="execution_time" name="execution_time" value="23:00"
+                           placeholder="23:00"
+                           class="w-full bg-gray-900 border border-gray-600 text-gray-100 rounded px-4 py-2 focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-gray-300 mb-2" for="switch_threshold">Switch Threshold (pence)</label>
+                    <input type="number" id="switch_threshold" name="switch_threshold" value="2"
+                           class="w-full bg-gray-900 border border-gray-600 text-gray-100 rounded px-4 py-2 focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div class="flex items-center">
+                    <input type="checkbox" id="dry_run" name="dry_run" 
+                           class="w-5 h-5 bg-gray-900 border border-gray-600 rounded">
+                    <label class="ml-3 text-gray-300" for="dry_run">Dry Run (compare only, don't switch)</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="one_off_run" name="one_off_run" 
+                           class="w-5 h-5 bg-gray-900 border border-gray-600 rounded">
+                    <label class="ml-3 text-gray-300" for="one_off_run">One-Off Run (run once and wait)</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tariff Settings -->
+        <div class="bg-gray-800 border border-gray-700 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-100 mb-4">Tariff Settings</h3>
+
+            <div>
+                <label class="block text-gray-300 mb-2" for="tariffs">Tariffs (comma-separated)</label>
+                <input type="text" id="tariffs" name="tariffs" value="go"
+                       placeholder="go,agile,flexible"
+                       class="w-full bg-gray-900 border border-gray-600 text-gray-100 rounded px-4 py-2 focus:outline-none focus:border-blue-500">
+                <p class="text-gray-500 text-sm mt-2">Valid: go, agile, cosy, flexible</p>
+            </div>
+        </div>
+
+        <!-- Notification Settings -->
+        <div class="bg-gray-800 border border-gray-700 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-100 mb-4">Notification Settings</h3>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-gray-300 mb-2" for="notification_urls">Notification URLs (Apprise)</label>
+                    <textarea id="notification_urls" name="notification_urls" rows="3"
+                              class="w-full bg-gray-900 border border-gray-600 text-gray-100 rounded px-4 py-2 focus:outline-none focus:border-blue-500">http://a:9/?x=1&amp;y=&lt;2&gt;
+second line &#34;quoted&#34; &#39;single&#39; £é</textarea>
+                    <p class="text-gray-500 text-sm mt-2">Comma-separated Apprise URLs</p>
+                </div>
+
+                <div class="flex items-center">
+                    <input type="checkbox" id="batch_notifications" name="batch_notifications" 
+                           class="w-5 h-5 bg-gray-900 border border-gray-600 rounded">
+                    <label class="ml-3 text-gray-300" for="batch_notifications">Batch Notifications</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-end">
+            <button type="submit"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200">
+                Update Configuration
+            </button>
+        </div>
+    </form>
+</div>
+
+    </main>
+</body>
+</html>

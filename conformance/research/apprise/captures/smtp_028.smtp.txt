@@ -1,0 +1,39 @@
+<<< 220 capture.local ESMTP apprise-capture
+>>> ehlo 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+<<< 250-capture.local
+250-SIZE 10240000
+250-8BITMIME
+250 HELP
+>>> mail FROM:<bot@example.com> size=705
+<<< 250 2.1.0 Ok
+>>> rcpt TO:<octopus@example.com>
+<<< 250 2.1.0 Ok
+>>> data
+<<< 354 End data with <CR><LF>.<CR><LF>
+>>> Content-Type: multipart/alternative; boundary="===============5700105647326046606=="
+>>> MIME-Version: 1.0
+>>> X-Application: Apprise
+>>> Subject: Octopus MinMax Results - Sun 27 Sep 23:00
+>>> From: bot@example.com
+>>> To: octopus@example.com
+>>> Message-ID: <179053636704.18970.14132599375883027974@127.0.0.1>
+>>> Date: Sun, 27 Sep 2026 19:12:47 +0000
+>>> 
+>>> --===============5700105647326046606==
+>>> Content-Type: text/plain; charset="utf-8"
+>>> MIME-Version: 1.0
+>>> Content-Transfer-Encoding: quoted-printable
+>>> 
+>>> line1
+>>> line2
+>>> --===============5700105647326046606==
+>>> Content-Type: text/html; charset="utf-8"
+>>> MIME-Version: 1.0
+>>> Content-Transfer-Encoding: quoted-printable
+>>> 
+>>> line1<br/>line2
+>>> --===============5700105647326046606==--
+>>> .
+<<< 250 2.0.0 Ok: queued as CAPTURE
+>>> quit
+<<< 221 2.0.0 Bye

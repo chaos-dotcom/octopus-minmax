@@ -1,0 +1,45 @@
+[
+ {
+  "case": "slack_notitle",
+  "urls": [
+   "slack://AAA111BBB1/BBB222CCC2/CCC333DDD3/general"
+  ],
+  "body": "line1\nline2",
+  "title": ""
+ },
+ {
+  "case": "pover_notitle",
+  "urls": [
+   "pover://uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu@tttttttttttttttttttttttttttttt"
+  ],
+  "body": "line1\nline2",
+  "title": ""
+ },
+ {
+  "case": "gotify_notitle",
+  "urls": [
+   "gotify://127.0.0.1:18804/gotifytoken"
+  ],
+  "body": "line1\nline2",
+  "title": ""
+ },
+ {
+  "case": "tgram_notitle2",
+  "urls": [
+   "tgram://123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw/987654321"
+  ],
+  "body": "line1\nline2",
+  "title": ""
+ },
+ {
+  "case": "ntfy_cloud_mode2",
+  "urls": [
+   "ntfy://ntfy.sh/topic?mode=cloud"
+  ],
+  "body": "line1\nline2",
+  "title": "Octopus MinMax Results - Sun 27 Sep 23:00",
+  "capture_map": {
+   "ntfy.sh": 18814
+  }
+ }
+]

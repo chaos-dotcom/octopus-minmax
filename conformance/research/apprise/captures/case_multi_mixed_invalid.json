@@ -1,0 +1,108 @@
+{
+  "add": [
+    [
+      "json://127.0.0.1:18801/notify",
+      true
+    ],
+    [
+      "bogus://nope/",
+      false
+    ],
+    [
+      "form://127.0.0.1:18802/notify",
+      true
+    ]
+  ],
+  "body_chars": 11,
+  "case": "multi_mixed_invalid",
+  "connect_redirects": [],
+  "log": [
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Language set to en"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Notification Plugin 110(s) and 157 Schema(s) loaded in 0.0350s"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded JSON URL: json://127.0.0.1:18801/notify?method=POST&format=text&overflow=upstream"
+    },
+    {
+      "level": "ERROR",
+      "logger": "apprise",
+      "msg": "Unparseable URL bogus://nope/"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Loaded Form URL: form://127.0.0.1:18802/notify?method=POST&format=text&overflow=upstream"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Notifying 2 service(s) with threads."
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "JSON POST URL: http://127.0.0.1:18801/notify (cert_verify=True)"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "JSON Payload: {'version': '1.0', 'title': 'Octopus MinMax Results - Sun 27 Sep 23:00', 'message': 'line1\\nline2', 'attachments': [], 'type': 'info'}"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Form POST URL: http://127.0.0.1:18802/notify (cert_verify=True)"
+    },
+    {
+      "level": "DEBUG",
+      "logger": "apprise",
+      "msg": "Form Payload: {'version': '1.0', 'title': 'Octopus MinMax Results - Sun 27 Sep 23:00', 'message': 'line1\\nline2', 'type': 'info'}"
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent JSON POST notification."
+    },
+    {
+      "level": "INFO",
+      "logger": "apprise",
+      "msg": "Sent Form POST notification."
+    }
+  ],
+  "new_files": [
+    "form_034.meta.json",
+    "form_034.request.txt",
+    "form_034.response.txt",
+    "json_033.meta.json",
+    "json_033.request.txt",
+    "json_033.response.txt"
+  ],
+  "notify_exception": null,
+  "notify_return": true,
+  "notify_seconds": 0.0051,
+  "servers": [
+    {
+      "class": "NotifyJSON",
+      "url": "json://127.0.0.1:18801/notify?method=POST&format=text&overflow=upstream"
+    },
+    {
+      "class": "NotifyForm",
+      "url": "form://127.0.0.1:18802/notify?method=POST&format=text&overflow=upstream"
+    }
+  ],
+  "title": "Octopus MinMax Results - Sun 27 Sep 23:00",
+  "urls": [
+    "json://127.0.0.1:18801/notify",
+    "bogus://nope/",
+    "form://127.0.0.1:18802/notify"
+  ]
+}

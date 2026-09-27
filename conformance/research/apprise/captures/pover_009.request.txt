@@ -1,0 +1,11 @@
+POST /1/messages.json HTTP/1.1
+Host: api.pushover.net
+User-Agent: Apprise
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Content-Length: 1252
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0Og==
+
+token=tttttttttttttttttttttttttttttt&user=uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu&priority=0&title=Octopus+MinMax+Results+-+Sun+27+Sep+23%3A00+%5B1%2F5%5D&message=line+001+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+002+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+003+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+004+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+005+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+006+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+007+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+008+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+009+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+010+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+011+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+012+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+013+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+014+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+015+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+016+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+017+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+018+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+019+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+020+abcdefghijabcdefghijabcdefghijabcdefghij%0Aline+021+abcdefghijabcde&device=ALL_DEVICES&sound=pushover

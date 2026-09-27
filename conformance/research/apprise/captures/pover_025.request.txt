@@ -1,0 +1,11 @@
+POST /1/messages.json HTTP/1.1
+Host: api.pushover.net
+User-Agent: Apprise
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Content-Length: 189
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0Og==
+
+token=tttttttttttttttttttttttttttttt&user=uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu&priority=0&title=Octopus+MinMax+Results+-+Sun+27+Sep+23%3A00&message=line1%0Aline2&device=ALL_DEVICES&sound=pushover
