@@ -1,3 +1,6 @@
+## v1.1.0 - v1.1.0
+Home Assistant consumption source (no Octopus Home Mini required); recognise Cosy FIX; GHCR image publishing.
+
 ## v1.0.9 - v1.0.9
 ## What's Changed
 * Update Addon Configuration to v1.0.8 by @github-actions[bot] in https://github.com/eelmafia/octopus-minmax/pull/163

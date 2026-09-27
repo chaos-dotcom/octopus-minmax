@@ -25,7 +25,9 @@ After starting the bot you can access the web dashboard on `localhost:5050`
   - Get your API key [here](https://octopus.energy/dashboard/new/accounts/personal-details/api-access)
 - A smart meter
 - Be on a supported Octopus Smart Tariff (see tariffs below)
-- An Octopus Home Mini for real-time usage (**Important**). Request one from Octopus Energy for free [here](https://octopus.energy/blog/octopus-home-mini/).
+- Today's usage, from one of:
+  - An energy sensor in **Home Assistant** (recommended, and the default). See [Consumption Source](#consumption-source) below - no Octopus hardware needed.
+  - An Octopus Home Mini, if you prefer to read usage from Octopus directly. Request one from Octopus Energy for free [here](https://octopus.energy/blog/octopus-home-mini/).
 
 ### HomeAssistant Addon
 
@@ -61,7 +63,7 @@ docker run -d \
   -e NOTIFICATION_URLS="<apprise_notification_urls>" \
   -e ONE_OFF=false \
   -e DRY_RUN=false \
-  -e TARIFFS=go,agile,flexible \
+  -e TARIFFS=cosy-fix,cosy,agile,flexible \
   -e TZ=Europe/London \
   -e BATCH_NOTIFICATIONS=false \
   -e WEB_USERNAME="<whatever_you_want>" \
@@ -77,7 +79,11 @@ Note : Remove the --restart unless line if you set the ONE_OFF variable or it wi
 |-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `ACC_NUMBER`                | Your Octopus Energy account number.                                                                                                                                                                                     |
 | `API_KEY`                   | API token for accessing your Octopus Energy account.                                                                                                                                                                    |
-| `TARIFFS`                   | A list of tariffs to compare against. Default is go,agile,flexible                                                                                                                                                      |
+| `TARIFFS`                   | A list of tariffs to compare against. Default is `cosy-fix,cosy,agile,go,flexible`. **It must include the tariff you are currently on**, otherwise the bot cannot identify your current tariff. |
+| `CONSUMPTION_SOURCE`        | Where to read today's usage from: `homeassistant` (default) or `octopus`. See [Consumption Source](#consumption-source). |
+| `HA_URL`                    | Home Assistant API base URL. Defaults to the add-on Supervisor proxy (`http://supervisor/core/api`). For Docker use e.g. `https://your-home-assistant:8123/api`. |
+| `HA_TOKEN`                  | Home Assistant long-lived access token. Not needed when running as an add-on (the Supervisor token is used automatically). |
+| `HA_IMPORT_ENTITY`          | The cumulative grid-import energy sensor (kWh) to read usage from, e.g. your GivTCP/inverter import total. |
 | `EXECUTION_TIME`            | (Optional) The time (HH:MM) when the script should execute. Default is `23:00` (11 PM).                                                                                                                                 |
 | `SWITCH_THRESHOLD`          | A value (in pence) which the saving must be before the switch occurs. Default is `2` (2p). |
 | `NOTIFICATION_URLS`         | (Optional) A comma-separated list of [Apprise](https://github.com/caronc/apprise) notification URLs for sending logs and updates.  See [Apprise documentation](https://github.com/caronc/apprise/wiki) for URL formats. |
@@ -103,6 +109,18 @@ Below is a list of supported tariffs, their IDs (to use in environment variables
 | Cosy Octopus     | cosy      | ✅          |
 | Octopus Go       | go        | ✅          |
 
+
+#### Consumption Source
+
+The bot needs today's half-hourly electricity usage to work out what the day would have cost on each tariff.
+
+By default (`CONSUMPTION_SOURCE=homeassistant`) it reads this from an energy sensor **in your Home Assistant instance** - the cumulative grid-import counter from your inverter/CT clamp (for example GivTCP). This is the same electricity your meter records (empirically within ~1% where a GivTCP CT sits on the grid supply), it is available on the day, and it does **not** require an Octopus Home Mini.
+
+Point `HA_IMPORT_ENTITY` at your cumulative import counter; the bot turns it into half-hourly slots for costing. When running as an add-on, no token is needed - the Supervisor API is used. For Docker, set `HA_URL` and `HA_TOKEN`.
+
+Set `CONSUMPTION_SOURCE=octopus` to use Octopus's `smartMeterTelemetry` feed instead, which requires an Octopus Home Mini.
+
+*Note: the accuracy of time-of-use costing depends on how finely your import sensor logs - a counter with whole-kWh resolution will land usage in slightly the wrong half-hour. A CT-based counter (e.g. GivTCP) is recommended.*
 
 #### Setting up Apprise Notifications
 
