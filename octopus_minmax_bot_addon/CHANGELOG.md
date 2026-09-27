@@ -1,3 +1,34 @@
+## v1.2.0 - v1.2.0 - the Rust implementation
+## v1.2.0 - the Rust implementation
+
+The bot is now a single Rust binary. It is **byte-identical** to the Python version it
+replaces: the same GraphQL/REST traffic, the same log file, the same notifications, the
+same dashboard bytes (including the Flask flash cookie and Werkzeug's error pages).
+
+### Verified
+* 306/306 conformance artifacts identical across 18 scenarios - requests on the wire,
+  notifications, logs, stdout/stderr and every dashboard response. See
+  `conformance/RESULTS.md` for the normalization ledger and the accepted differences.
+* 25 unit tests (`cd rust && cargo test`), including Apprise 1.9.2 wire captures and
+  captured Flask session cookies.
+
+### Smaller and cheaper
+
+| | Python (v1.1.0) | Rust (v1.2.0) |
+|---|---|---|
+| container image | 269 MB | 141 MB |
+| runtime on disk | 20.7 MiB | 2.74 MiB |
+| resident memory (idle dashboard) | 49.5 MiB | 6.5 MiB |
+| CPU per dashboard request | 443 us | 47 us |
+| start-up CPU | 0.096 s | 0.0037 s |
+
+### Configuration
+Environment variables, the web dashboard, `logs/octobot.log` (10 MiB rotation, 5
+backups), notifications and tariff behaviour are unchanged. The one visible difference
+is the `Server:` response header, which identifies the HTTP implementation; set
+`OCTO_SERVER_HEADER=Werkzeug/3.1.9 Python/3.11.15` to reproduce the old value byte for
+byte.
+
 ## v1.1.0 - v1.1.0
 Home Assistant consumption source (no Octopus Home Mini required); recognise Cosy FIX; GHCR image publishing.
 
